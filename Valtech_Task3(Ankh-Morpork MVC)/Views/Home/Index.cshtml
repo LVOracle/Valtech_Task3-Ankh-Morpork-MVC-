@@ -1,9 +1,10 @@
-﻿@{
+﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository.AnkhMorporkRepository
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div>Hello Vlad</div>
-@foreach (var a in ViewBag.Assassins)
+@foreach (var a in Model.GetAssassinsEnumerable)
 {
     <div>@a.Name</div>
 }

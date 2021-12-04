@@ -7,13 +7,15 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
     public class HomeController : Controller
     {
         private readonly AnkhMorporkGameContext _context = new AnkhMorporkGameContext();
-        private AnkhMorporkRepository _repository;
-        public ActionResult Index()
+        private readonly AnkhMorporkRepository _repository;
+
+        public HomeController()
         {
             _repository = new AnkhMorporkRepository(_context);
-            var assassins = _repository.GetAssassinsEnumerable;
-            ViewBag.Assassins = assassins;
-            return View();
+        }
+        public ActionResult Index()
+        {
+            return View(_repository);
         }
 
         public ActionResult About()
