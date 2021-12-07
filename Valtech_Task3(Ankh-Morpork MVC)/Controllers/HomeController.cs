@@ -1,17 +1,17 @@
 ﻿using System.Web.Mvc;
+using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 {
     public class HomeController : Controller
     {
         private readonly AnkhMorporkGameContext _context = new AnkhMorporkGameContext();
-        private readonly AnkhMorporkRepository _repository;
+        private readonly AssassinsRepository _repository;
 
         public HomeController()
         {
-            _repository = new AnkhMorporkRepository(_context);
+            _repository = new AssassinsRepository(_context);
         }
         public ActionResult Index()
         {

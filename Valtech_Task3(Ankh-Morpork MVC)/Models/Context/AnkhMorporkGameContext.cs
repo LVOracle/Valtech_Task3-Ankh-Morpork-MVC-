@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources
+namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Context
 {
     public class AnkhMorporkGameContext : DbContext
     {

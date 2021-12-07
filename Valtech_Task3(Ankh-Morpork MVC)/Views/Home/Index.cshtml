@@ -1,10 +1,16 @@
-﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository.AnkhMorporkRepository
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div>Hello Vlad</div>
-@foreach (var a in Model.GetAssassinsEnumerable)
+@if (User.Identity.IsAuthenticated)
 {
-    <div>@a.Name</div>
+    <p>Hello @User.Identity.Name</p>
+    using (Html.BeginForm("Logout", "Account", FormMethod.Post))
+    {
+        <input type="submit" value="Exit"/>
+    }
+}
+else
+{
+    @Html.ActionLink("Registration", "Register", "Account")
+    @Html.ActionLink("Login","Login","Account");
 }

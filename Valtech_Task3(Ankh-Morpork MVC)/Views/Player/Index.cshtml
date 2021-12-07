@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Valtech_Task3_Ankh_Morpork_MVC_.Models.Player>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr><th>Name</th></tr>
+    @foreach (var player in Model)
+    {
+        <tr>
+            <td>@player.UserName</td>
+            <td>
+                @using (Html.BeginForm("Delete", "Player", new { id = player.Id }, FormMethod.Post,null))
+                {
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Delete
+                    </button>
+                }
+                @Html.ActionLink("Edit","Edit","Player",new {id = player.Id},null)
+
+            </td>
+        </tr>
+    }
+</table>

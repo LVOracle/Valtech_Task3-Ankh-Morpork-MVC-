@@ -2,11 +2,9 @@
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.IRepository
 {
-    interface IAnkhMorporkRepository
+    interface IAnkhMorporkRepository<T>
     {
-        IEnumerable<Assassins> GetAssassinsEnumerable { get; }
-        IEnumerable<Beggars> GetBeggarsEnumerable { get; }
-        IEnumerable<Fools> GetFoolsEnumerable { get; }
-        IEnumerable<Thieves> GetThievesEnumerable { get; }
+        IEnumerable<T> GetGuildMembersEnumerable { get; }
+        void Save(T member);
     }
 }
