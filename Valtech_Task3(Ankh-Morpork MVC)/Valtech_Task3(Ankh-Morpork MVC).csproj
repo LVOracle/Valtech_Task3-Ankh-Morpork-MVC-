@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,10 +45,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -302,36 +301,43 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Controllers\Account\AccountController.cs" />
-    <Compile Include="Controllers\Account\PlayerController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GuildsController\AssassinsGuildController.cs" />
+    <Compile Include="Controllers\GuildsController\BeggarsGuildController.cs" />
+    <Compile Include="Controllers\GuildsController\FoolsGuildController.cs" />
+    <Compile Include="Controllers\GuildsController\ThievesGuildController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Controllers\GamePlayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Context\AccountContext.cs" />
     <Compile Include="Models\IRepository\IAnkhMorporkRepository.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Repository\AssassinsRepository.cs" />
     <Compile Include="Models\Repository\BeggarsRepository.cs" />
     <Compile Include="Models\Repository\FoolsRepository.cs" />
     <Compile Include="Models\Repository\ThievesRepository.cs" />
-    <Compile Include="Models\Context\AccountContext.cs" />
-    <Compile Include="Models\Resources\Account\AccountPlayerManager.cs" />
     <Compile Include="Models\Context\AnkhMorporkGameContext.cs" />
     <Compile Include="Models\Assassins.cs" />
     <Compile Include="Models\Beggars.cs" />
+    <Compile Include="Models\Resources\AccountPlayerManager.cs" />
     <Compile Include="Models\Resources\AnkhMorporkInitializer.cs" />
     <Compile Include="Models\Resources\DbSeedData.cs" />
     <Compile Include="Models\Fools.cs" />
     <Compile Include="Models\Thieves.cs" />
+    <Compile Include="Models\ViewModels\Account\LoginModel.cs" />
+    <Compile Include="Models\ViewModels\Account\RegisterModel.cs" />
     <Compile Include="Models\ViewModels\Player\ChangePasswordViewModel.cs" />
-    <Compile Include="Models\ViewModels\Account\LoginViewModel.cs" />
-    <Compile Include="Models\ViewModels\Account\RegisterViewModel.cs" />
     <Compile Include="Models\ViewModels\Player\EditPlayerViewModel.cs" />
+    <Compile Include="Models\ViewModels\GameEntitiesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AssassinsGuild.cs" />
     <Compile Include="Resources\BeggarsGuild.cs" />
     <Compile Include="Resources\FoolsGuild.cs" />
     <Compile Include="Resources\Guild.cs" />
+    <Compile Include="Resources\GuildProcessor.cs" />
     <Compile Include="Resources\ThievesGuild.cs" />
     <Compile Include="Services\RandomGenerate.cs" />
   </ItemGroup>
@@ -344,8 +350,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
-    <Content Include="img\glyphicons-halflings-white.png" />
-    <Content Include="img\glyphicons-halflings.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -375,13 +379,23 @@
     <Content Include="Views\Shared\_ValidationCssStylePartilal.cshtml" />
     <Content Include="Views\Shared\_ValidationMetaPartial.cshtml" />
     <Content Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\Edit.cshtml" />
+    <Content Include="Views\ThievesGuild\Index.cshtml" />
+    <Content Include="Views\FoolsGuild\Index.cshtml" />
+    <Content Include="Views\AssassinsGuild\Index.cshtml" />
+    <Content Include="Views\BeggarsGuild\Index.cshtml" />
+    <Content Include="Views\BeggarsGuild\Action.cshtml" />
+    <Content Include="Views\ThievesGuild\Action.cshtml" />
+    <Content Include="Views\AssassinsGuild\Action.cshtml" />
+    <Content Include="Views\FoolsGuild\Action.cshtml" />
+    <Content Include="Views\GamePlay\GameOver.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Service\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -418,12 +432,9 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

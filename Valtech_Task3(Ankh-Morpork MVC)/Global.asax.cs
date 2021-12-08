@@ -12,7 +12,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_
         protected void Application_Start()
         {
             Database.SetInitializer(new AnkhMorporkInitializer());
-            Database.SetInitializer<AccountContext>(null);
+            //Database.SetInitializer<AccountContext>(null);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -1,4 +1,4 @@
-﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Account.RegisterViewModel
+﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Account.RegisterModel
 
 @{
     ViewBag.Title = "Register";
@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>RegisterViewModel</h4>
+        <h4>RegisterModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -49,3 +49,7 @@
 <div>
     @Html.ActionLink("Back to home page", "Index", "Home")
 </div>
+<div>
+    @Html.ActionLink("If you have account Login", "Login", "Account")
+</div> 
+

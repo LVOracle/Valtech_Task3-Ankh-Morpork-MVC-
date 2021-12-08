@@ -4,11 +4,12 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources.Account;
+using Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Player;
 
-namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.Account
+namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 {
+    [Authorize]
     public class PlayerController : Controller
     {
         private AccountPlayerManager PlayerManager => HttpContext.GetOwinContext().GetUserManager<AccountPlayerManager>();
@@ -17,7 +18,6 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.Account
         {
             return View(PlayerManager.Users.ToList());
         }
-
         [HttpGet]
         public async Task<ActionResult> Edit(string id)
         {
@@ -29,9 +29,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.Account
             var model = new EditPlayerViewModel { Id = player.Id, Name = player.UserName };
             return View(model);
         }
-
         [HttpPost]
-
         public async Task<ActionResult> Edit(EditPlayerViewModel model)
         {
             if (ModelState.IsValid)

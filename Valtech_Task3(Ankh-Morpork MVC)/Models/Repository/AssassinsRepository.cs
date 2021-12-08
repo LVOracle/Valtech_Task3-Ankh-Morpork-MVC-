@@ -9,7 +9,6 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository
     {
         private readonly AnkhMorporkGameContext _context;
         public AssassinsRepository(AnkhMorporkGameContext context) => _context = context;
-        public IEnumerable<Assassins> GetAssassinsEnumerable => _context.AssassinsTable;
         public IEnumerable<Assassins> GetGuildMembersEnumerable => _context.AssassinsTable;
         public void Save(Assassins member)
         {

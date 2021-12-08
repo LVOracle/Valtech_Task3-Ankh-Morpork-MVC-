@@ -1,9 +1,11 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@if (User.Identity.IsAuthenticated)
+@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.GameEntitiesViewModel
+@if (User.Identity.IsAuthenticated) 
 {
     <p>Hello @User.Identity.Name</p>
+    @Html.ActionLink("Play","Index","GamePlay", new {model = Model}, null);
     using (Html.BeginForm("Logout", "Account", FormMethod.Post))
     {
         <input type="submit" value="Exit"/>
@@ -12,5 +14,5 @@
 else
 {
     @Html.ActionLink("Registration", "Register", "Account")
-    @Html.ActionLink("Login","Login","Account");
+    @Html.ActionLink("Login","Login","Account")
 }

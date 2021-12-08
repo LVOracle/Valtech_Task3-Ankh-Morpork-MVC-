@@ -5,22 +5,29 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources.Account;
+using Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Account;
 
-namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.Account
+namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 {
     public class AccountController : Controller
     {
-        private AccountPlayerManager PlayerManager => HttpContext.GetOwinContext().GetUserManager<AccountPlayerManager>();
-        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
+        private AccountPlayerManager PlayerManager =>
+            HttpContext.GetOwinContext().GetUserManager<AccountPlayerManager>();
+
+        private IAuthenticationManager AuthenticationMaaManager => HttpContext.GetOwinContext().Authentication;
         // GET: Account
         public ActionResult Register()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
+
         [HttpPost]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
@@ -30,7 +37,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.Account
                 {
                     var claim = await PlayerManager.CreateIdentityAsync(player,
                         DefaultAuthenticationTypes.ApplicationCookie);
-                    AuthenticationManager.SignIn(new AuthenticationProperties
+                    AuthenticationMaaManager.SignIn(new AuthenticationProperties
                     {
                         IsPersistent = true
                     }, claim);
@@ -40,32 +47,35 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.Account
                 {
                     foreach (string error in result.Errors)
                     {
-                        ModelState.AddModelError("", error);
+                        ModelState.AddModelError("",error);
                     }
                 }
             }
+
             return View(model);
         }
+
         public ActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model)
+        public async Task<ActionResult> Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
                 var player = await PlayerManager.FindAsync(model.Name, model.Password);
                 if (player == null)
                 {
-                    ModelState.AddModelError("","Incorrect login or password");
+                    ModelState.AddModelError("", "Incorrect login or password");
                 }
                 else
                 {
                     var claim = await PlayerManager.CreateIdentityAsync(player,
                         DefaultAuthenticationTypes.ApplicationCookie);
-                    AuthenticationManager.SignIn(new AuthenticationProperties
+                    AuthenticationMaaManager.SignIn(new AuthenticationProperties
                     {
                         IsPersistent = true
                     }, claim);
@@ -78,7 +88,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.Account
         [HttpPost]
         public ActionResult Logout()
         {
-            AuthenticationManager.SignOut();
+            AuthenticationMaaManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
     }

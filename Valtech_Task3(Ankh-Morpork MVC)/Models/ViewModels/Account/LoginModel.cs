@@ -2,12 +2,12 @@
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Account
 {
-    public class LoginViewModel
+    public class LoginModel
     {
         [Required]
-        public string Name { get; set;}
+        public string Name { get; set; }
         [Required]
-        [DataType(DataType.Password)]
+        [DataType((DataType.Password))]
         public string Password { get; set; }
     }
 }

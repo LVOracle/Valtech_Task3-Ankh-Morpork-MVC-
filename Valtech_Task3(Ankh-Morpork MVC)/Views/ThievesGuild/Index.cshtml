@@ -1,0 +1,10 @@
+﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.GameEntitiesViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index thieves</h2>
+<div>@Model.CurrentPlayer.Money</div>
+
+@Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
+@Html.ActionLink("No", "AnswerNo")

@@ -2,20 +2,12 @@
 {
     public abstract class Guild
     {
-        protected string Name { get; }
-        protected string Slogan { get; }
+        public string Name { get; }
+        public string Slogan { get; }
         protected Guild(string name, string slogan)
         {
             Name = name;
             Slogan = slogan;
-        }
-        public static Guild[] GetAllGuilds()
-        {
-            var allGuilds = new Guild[]
-            {
-                new AssassinsGuild(), new BeggarsGuild(), new FoolsGuild(), new ThievesGuild()
-            };
-            return allGuilds;
         }
     }
 }

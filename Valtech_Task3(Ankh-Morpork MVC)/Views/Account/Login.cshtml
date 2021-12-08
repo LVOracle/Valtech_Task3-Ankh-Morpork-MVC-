@@ -1,16 +1,17 @@
-﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Account.LoginViewModel
+﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Account.LoginModel
 
 @{
     ViewBag.Title = "Login";
 }
 
-<h2>View</h2>
+<h2>Login</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
+        <h4>LoginModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -38,5 +39,8 @@
 }
 
 <div>
-    @Html.ActionLink("Back to the home", "Index", "Home")
+    @Html.ActionLink("Back to home", "Index", "Home")
 </div>
+<div>
+    @Html.ActionLink("If you haven't account Login", "Register", "Account")
+</div> 

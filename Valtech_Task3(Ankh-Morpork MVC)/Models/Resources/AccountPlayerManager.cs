@@ -4,11 +4,14 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
 
-namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources.Account
+namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources
 {
     public class AccountPlayerManager : UserManager<Player>
     {
-        public AccountPlayerManager(IUserStore<Player> store) : base(store) { }
+        public AccountPlayerManager(IUserStore<Player> store) : base(store)
+        {
+        }
+
         public static AccountPlayerManager Create(IdentityFactoryOptions<AccountPlayerManager> options,
             IOwinContext context)
         {
