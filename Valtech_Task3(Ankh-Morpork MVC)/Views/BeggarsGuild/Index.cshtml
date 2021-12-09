@@ -6,5 +6,5 @@
 <div>@Model.CurrentPlayer.Money</div>
 <div>@Model.Beggar.Name --- @Model.Beggar.GiveMoney</div>
 
-@Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
+@Html.ActionLink("Yes", "AnswerYes", new { name = Model.Beggar}, null)
 @Html.ActionLink("No", "AnswerNo")

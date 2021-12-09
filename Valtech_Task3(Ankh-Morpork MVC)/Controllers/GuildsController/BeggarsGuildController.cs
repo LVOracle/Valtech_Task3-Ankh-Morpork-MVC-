@@ -1,6 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
+using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
+using Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels;
 using Valtech_Task3_Ankh_Morpork_MVC_.Resources;
 
@@ -11,24 +14,40 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
     {
         private GameEntitiesViewModel gm = new GameEntitiesViewModel();
 
-        // GET: BeggarsGuild
+        private readonly BeggarsRepository _beggarsRepository =
+            new BeggarsRepository(AnkhMorporkGameContext.Create());
+
         public ActionResult Index()
         {
             var beggar = BeggarsGuild.GetBeggar();
-            gm.Beggar = beggar;
-            gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
-            gm.CurrentPlayer.Money -= 10m;
-            gm.Manager.Update(gm.CurrentPlayer);
 
+            gm.Beggar = beggar;
+            
+            gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
+            
             return View(gm);
         }
         public ActionResult Action()
         {
-            return View();
+            var viewModel = TempData["ViewModel"] as GameEntitiesViewModel;
+
+            return View(viewModel);
         }
-        public ActionResult AnswerYes(Beggars beggar)
+        public ActionResult AnswerYes(Beggars beggary)
         {
-            return RedirectToAction("Action", beggar);
+            var beggar = _beggarsRepository.GetGuildMembersEnumerable.FirstOrDefault(b => b.Name == beggary.Name);
+
+            gm.Beggar = beggar;
+            
+            gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
+            
+            gm.CurrentPlayer.LoseMoney(beggar.GiveMoney);
+            
+            gm.Manager.Update(gm.CurrentPlayer);
+
+            TempData["ViewModel"] = gm;
+            
+            return RedirectToAction("Action");
         }
         public ActionResult AnswerNo()
         {

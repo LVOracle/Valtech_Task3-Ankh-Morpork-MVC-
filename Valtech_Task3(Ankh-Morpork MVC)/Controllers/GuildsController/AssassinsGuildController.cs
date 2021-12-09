@@ -21,6 +21,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         public ActionResult Index()
         {
             gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
+
             return View(gm);
         }
         public ActionResult Action()
@@ -32,8 +33,10 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         public ActionResult Action(decimal money)
         {
             gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
+
             var listOfAvailableAssassins = _assassinsRepository.GetGuildMembersEnumerable.Where(assassin =>
                 assassin.IsOccupied == false && (assassin.MinRange <= money && money <= assassin.MaxRange));
+
             if (listOfAvailableAssassins.Any())
             {
                 gm.CurrentPlayer.LoseMoney(money);
@@ -41,12 +44,14 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
             }
 
             TempData["availableAssassins"] = listOfAvailableAssassins;
+
             return RedirectToAction("AvailableAssassins");
         }
 
         public ActionResult AvailableAssassins()
         {
             var listAssassinsEnumerable = TempData["availableAssassins"] as IEnumerable<Assassins>;
+
             return View(listAssassinsEnumerable);
         }
         public ActionResult AnswerYes()

@@ -11,7 +11,6 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models
             Money = 100m;
             IsKilled = false;
         }
-
         public void LoseMoney(decimal money)
         {
             Money -= money;
