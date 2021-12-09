@@ -8,9 +8,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources
 {
     public class AccountPlayerManager : UserManager<Player>
     {
-        public AccountPlayerManager(IUserStore<Player> store) : base(store)
-        {
-        }
+        public AccountPlayerManager(IUserStore<Player> store) : base(store) { }
 
         public static AccountPlayerManager Create(IdentityFactoryOptions<AccountPlayerManager> options,
             IOwinContext context)

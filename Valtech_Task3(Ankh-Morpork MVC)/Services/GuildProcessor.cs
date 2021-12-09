@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Valtech_Task3_Ankh_Morpork_MVC_.Services;
+using Valtech_Task3_Ankh_Morpork_MVC_.Resources;
 
-namespace Valtech_Task3_Ankh_Morpork_MVC_.Resources
+namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
 {
     public static class GuildProcessor
     {

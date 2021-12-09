@@ -1,8 +1,10 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Action";
 }
-
 <h2>Action assassin</h2>
-
-@Html.ActionLink("Next step", "Index", "GamePlay")
+@using (Html.BeginForm("Action", "AssassinsGuild", FormMethod.Post))
+{
+    <input type="number" name="money" required="required" />
+    <br />
+    <input type="submit" name="Send"/>
+}

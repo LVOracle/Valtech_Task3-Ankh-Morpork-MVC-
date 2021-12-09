@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Valtech_Task3_Ankh_Morpork_MVC_.Models.Assassins>
+@{
+    ViewBag.Title = "AvailableAssassins";
+}
+@if (!Model.Any())
+{
+    <div>All assassins are occupied or amount of money to low or to much! Made it in range 4-45 dollars!</div>
+    @Html.ActionLink("Make another answer", "Action")
+
+}
+else
+{
+    if (Model.Count() == 1)
+    {
+        <div>You pay to him!</div>
+    }
+    else
+    {
+        <div>You take first of them!</div>
+    }
+    <span> Congratulation you in the safety!</span>
+    foreach (var assassin in Model)
+    {
+        <div>@assassin.Name</div>
+    }
+    @Html.ActionLink("Next step", "Index", "GamePlay")
+}
+<h2>ListOfAvailableAssassins</h2>
+

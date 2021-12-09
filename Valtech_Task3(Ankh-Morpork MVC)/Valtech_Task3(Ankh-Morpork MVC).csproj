@@ -337,7 +337,7 @@
     <Compile Include="Resources\BeggarsGuild.cs" />
     <Compile Include="Resources\FoolsGuild.cs" />
     <Compile Include="Resources\Guild.cs" />
-    <Compile Include="Resources\GuildProcessor.cs" />
+    <Compile Include="Services\GuildProcessor.cs" />
     <Compile Include="Resources\ThievesGuild.cs" />
     <Compile Include="Services\RandomGenerate.cs" />
   </ItemGroup>
@@ -392,6 +392,7 @@
     <Content Include="Views\GamePlay\GameOver.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\AssassinsGuild\AvailableAssassins.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

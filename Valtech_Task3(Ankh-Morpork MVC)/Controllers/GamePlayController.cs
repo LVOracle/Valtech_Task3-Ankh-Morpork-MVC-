@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels;
-using Valtech_Task3_Ankh_Morpork_MVC_.Resources;
+using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 {

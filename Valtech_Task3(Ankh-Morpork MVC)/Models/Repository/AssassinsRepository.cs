@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.IRepository;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository
 {
