@@ -12,9 +12,9 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         // GET: ThievesGuild
         public ActionResult Index()
         {
-            gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
-            gm.CurrentPlayer.Money -= 10m;
-            gm.Manager.Update(gm.CurrentPlayer);
+            //gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
+            //gm.CurrentPlayer.Money -= 10m;
+            //gm.Manager.Update(gm.CurrentPlayer);
 
             return View(gm);
         }

@@ -4,48 +4,42 @@ using Microsoft.AspNet.Identity;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels;
 using Valtech_Task3_Ankh_Morpork_MVC_.Resources;
+using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
 {
     [Authorize]
     public class BeggarsGuildController : Controller
     {
-        private GameEntitiesViewModel gm = new GameEntitiesViewModel();
-
         private readonly BeggarsRepository _beggarsRepository =
             new BeggarsRepository(AnkhMorporkGameContext.Create());
+
+        private PlayerProcessor pp = new PlayerProcessor();
 
         public ActionResult Index()
         {
             var beggar = BeggarsGuild.GetBeggar();
 
-            gm.Beggar = beggar;
-            
-            gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
-            
-            return View(gm);
+            return View(beggar);
         }
         public ActionResult Action()
         {
-            var viewModel = TempData["ViewModel"] as GameEntitiesViewModel;
+            var beggar = TempData["Beggar"] as Beggars;
 
-            return View(viewModel);
+            return View(beggar);
         }
         public ActionResult AnswerYes(Beggars beggary)
         {
             var beggar = _beggarsRepository.GetGuildMembersEnumerable.FirstOrDefault(b => b.Name == beggary.Name);
 
-            gm.Beggar = beggar;
-            
-            gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
-            
-            gm.CurrentPlayer.LoseMoney(beggar.GiveMoney);
-            
-            gm.Manager.Update(gm.CurrentPlayer);
+            PlayerProcessor.CurrentPlayer = PlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId());
 
-            TempData["ViewModel"] = gm;
+            if (beggar != null) PlayerProcessor.CurrentPlayer.LoseMoney(beggar.GiveMoney);
+
+            PlayerProcessor.PlayerManager.Update(PlayerProcessor.CurrentPlayer);
+
+            TempData["Beggar"] = beggar;
             
             return RedirectToAction("Action");
         }

@@ -5,7 +5,6 @@
 }
 
 <h2>Index fool</h2>
-<div>@Model.CurrentPlayer.Money</div>
 <div>@Model.Fool.Name --- @Model.Fool.TakeMoney</div>
-@Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
+@Html.ActionLink("Yes", "AnswerYes")
 @Html.ActionLink("No", "AnswerNo")

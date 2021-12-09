@@ -1,10 +1,13 @@
-﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.GameEntitiesViewModel
+﻿@using Microsoft.AspNet.Identity
+@using Valtech_Task3_Ankh_Morpork_MVC_.Services
+@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Beggars
 @{
     ViewBag.Title = "Index";
 }
-<div>Index beggar</div>
-<div>@Model.CurrentPlayer.Money</div>
-<div>@Model.Beggar.Name --- @Model.Beggar.GiveMoney</div>
 
-@Html.ActionLink("Yes", "AnswerYes", new { name = Model.Beggar}, null)
+<div>@PlayerProcessor.PlayerBalanceTextVariant(PlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
+<div>Index beggar</div>
+<div>@Model.Name --- @Model.GiveMoney</div>
+
+@Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
 @Html.ActionLink("No", "AnswerNo")

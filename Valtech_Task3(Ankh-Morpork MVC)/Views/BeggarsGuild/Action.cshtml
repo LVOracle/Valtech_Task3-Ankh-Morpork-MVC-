@@ -1,8 +1,8 @@
-﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.GameEntitiesViewModel
+﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Beggars
 @{
     ViewBag.Title = "Action";
 }
 
 <h2>Action beggars</h2>
-<div>You pay @Model.Beggar.GiveMoney dollars to @Model.Beggar.Name</div>
+<div>You pay @Model.GiveMoney dollars to @Model.Name</div>
 @Html.ActionLink("Next step", "Index", "GamePlay")

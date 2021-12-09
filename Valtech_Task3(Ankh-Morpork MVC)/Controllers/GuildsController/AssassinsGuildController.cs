@@ -5,14 +5,14 @@ using Microsoft.AspNet.Identity;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels;
+using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
 {
     [Authorize]
     public class AssassinsGuildController : Controller
     {
-        private GameEntitiesViewModel gm = new GameEntitiesViewModel();
+        private PlayerProcessor pp = new PlayerProcessor();
 
         private readonly AssassinsRepository _assassinsRepository =
             new AssassinsRepository(AnkhMorporkGameContext.Create());
@@ -20,9 +20,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         // GET: AssassinsGuild
         public ActionResult Index()
         {
-            gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
-
-            return View(gm);
+            return View();
         }
         public ActionResult Action()
         {
@@ -32,15 +30,16 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         [HttpPost]
         public ActionResult Action(decimal money)
         {
-            gm.CurrentPlayer = gm.Manager.FindById(User.Identity.GetUserId());
-
             var listOfAvailableAssassins = _assassinsRepository.GetGuildMembersEnumerable.Where(assassin =>
                 assassin.IsOccupied == false && (assassin.MinRange <= money && money <= assassin.MaxRange));
 
             if (listOfAvailableAssassins.Any())
             {
-                gm.CurrentPlayer.LoseMoney(money);
-                gm.Manager.Update(gm.CurrentPlayer);
+                PlayerProcessor.CurrentPlayer = PlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId()); 
+
+                PlayerProcessor.CurrentPlayer.LoseMoney(money);
+                
+                PlayerProcessor.PlayerManager.Update(PlayerProcessor.CurrentPlayer);
             }
 
             TempData["availableAssassins"] = listOfAvailableAssassins;

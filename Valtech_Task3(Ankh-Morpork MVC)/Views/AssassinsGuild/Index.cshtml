@@ -1,10 +1,11 @@
-﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.GameEntitiesViewModel
+﻿@using Microsoft.AspNet.Identity
+@using Valtech_Task3_Ankh_Morpork_MVC_.Services
 @{
     ViewBag.Title = "Index";
 }
-<div>@Model.CurrentPlayer.Money</div>
+<div>@PlayerProcessor.PlayerBalanceTextVariant(PlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
 <h2>Someone want's to kill you...take contract it will cost some money for you..you take?</h2>
 
-@Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
+@Html.ActionLink("Yes", "AnswerYes")
 @Html.ActionLink("No", "AnswerNo")
 
