@@ -12,7 +12,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
     [Authorize]
     public class AssassinsGuildController : Controller
     {
-        private PlayerProcessor pp = new PlayerProcessor();
+        private CurrentPlayerProcessor playerProcessor = new CurrentPlayerProcessor();
 
         private readonly AssassinsRepository _assassinsRepository =
             new AssassinsRepository(AnkhMorporkGameContext.Create());
@@ -35,11 +35,11 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
 
             if (listOfAvailableAssassins.Any())
             {
-                PlayerProcessor.CurrentPlayer = PlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId()); 
+                CurrentPlayerProcessor.CurrentPlayer = CurrentPlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId());
 
-                PlayerProcessor.CurrentPlayer.LoseMoney(money);
-                
-                PlayerProcessor.PlayerManager.Update(PlayerProcessor.CurrentPlayer);
+                CurrentPlayerProcessor.CurrentPlayer.LoseMoney(money);
+
+                CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
             }
 
             TempData["availableAssassins"] = listOfAvailableAssassins;

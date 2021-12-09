@@ -339,7 +339,7 @@
     <Compile Include="Resources\Guild.cs" />
     <Compile Include="Services\GuildProcessor.cs" />
     <Compile Include="Resources\ThievesGuild.cs" />
-    <Compile Include="Services\PlayerProcessor.cs" />
+    <Compile Include="Services\CurrentPlayerProcessor.cs" />
     <Compile Include="Services\RandomGenerate.cs" />
   </ItemGroup>
   <ItemGroup>

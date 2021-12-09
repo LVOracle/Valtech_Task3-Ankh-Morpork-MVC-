@@ -5,7 +5,7 @@
     ViewBag.Title = "Index";
 }
 
-<div>@PlayerProcessor.PlayerBalanceTextVariant(PlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
+<div>@CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
 <div>Index beggar</div>
 <div>@Model.Name --- @Model.GiveMoney</div>
 

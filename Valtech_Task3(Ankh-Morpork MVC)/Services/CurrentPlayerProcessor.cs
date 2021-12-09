@@ -6,12 +6,12 @@ using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
 {
-    public class PlayerProcessor
+    public class CurrentPlayerProcessor
     {
         public static UserManager<Player> PlayerManager { get; private set; }
         public static Player CurrentPlayer { get; set; }
 
-        public PlayerProcessor()
+        public CurrentPlayerProcessor()
         {
             PlayerManager = new UserManager<Models.Player>(new UserStore<Models.Player>(new AccountContext()));
         }

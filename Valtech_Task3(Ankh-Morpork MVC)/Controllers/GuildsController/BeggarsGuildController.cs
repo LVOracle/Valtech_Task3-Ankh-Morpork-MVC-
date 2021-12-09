@@ -15,7 +15,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         private readonly BeggarsRepository _beggarsRepository =
             new BeggarsRepository(AnkhMorporkGameContext.Create());
 
-        private PlayerProcessor pp = new PlayerProcessor();
+        private CurrentPlayerProcessor playerProcessor = new CurrentPlayerProcessor();
 
         public ActionResult Index()
         {
@@ -33,11 +33,11 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         {
             var beggar = _beggarsRepository.GetGuildMembersEnumerable.FirstOrDefault(b => b.Name == beggary.Name);
 
-            PlayerProcessor.CurrentPlayer = PlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId());
+            CurrentPlayerProcessor.CurrentPlayer = CurrentPlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId());
 
-            if (beggar != null) PlayerProcessor.CurrentPlayer.LoseMoney(beggar.GiveMoney);
+            if (beggar != null) CurrentPlayerProcessor.CurrentPlayer.LoseMoney(beggar.GiveMoney);
 
-            PlayerProcessor.PlayerManager.Update(PlayerProcessor.CurrentPlayer);
+            CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 
             TempData["Beggar"] = beggar;
             

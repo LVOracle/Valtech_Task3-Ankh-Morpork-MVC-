@@ -6,7 +6,7 @@
 }
 
 <h2>Index thieves</h2>
-<div>@PlayerProcessor.PlayerBalanceTextVariant(PlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
+<div>@CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
 
 @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
 @Html.ActionLink("No", "AnswerNo")

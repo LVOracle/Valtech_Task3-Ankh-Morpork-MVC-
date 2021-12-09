@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<div>@PlayerProcessor.PlayerBalanceTextVariant(PlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
+<div>@CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
 <h2>Someone want's to kill you...take contract it will cost some money for you..you take?</h2>
 
 @Html.ActionLink("Yes", "AnswerYes")
