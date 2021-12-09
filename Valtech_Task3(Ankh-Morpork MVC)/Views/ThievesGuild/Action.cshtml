@@ -1,8 +1,9 @@
-﻿
+﻿@using Valtech_Task3_Ankh_Morpork_MVC_.Resources
+@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Thieves
 @{
     ViewBag.Title = "Action";
 }
 
-<h2>Action thieve</h2>
-
+<h2>Action beggars</h2>
+<div>You pay @ThievesGuild.MoneySteel AM$ to @Model.Name</div>
 @Html.ActionLink("Next step", "Index", "GamePlay")
