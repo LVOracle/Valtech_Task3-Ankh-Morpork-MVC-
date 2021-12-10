@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNet.Identity
+@using Valtech_Task3_Ankh_Morpork_MVC_.Services
+<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("_ValidationMetaPartial")
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Html.Partial("_ValidationCssStylePartilal")
+</head>
+<body>
+<div>@CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
+<br/>
+<br/>
+@RenderBody()
+    @Html.Partial("_ValidationScriptsPartial")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

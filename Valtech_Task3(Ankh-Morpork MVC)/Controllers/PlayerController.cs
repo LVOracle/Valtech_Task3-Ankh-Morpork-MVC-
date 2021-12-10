@@ -69,5 +69,10 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult OutOfMoney()
+        {
+            return View();
+        }
     }
 }

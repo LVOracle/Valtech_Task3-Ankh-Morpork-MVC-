@@ -4,9 +4,8 @@
 @model Valtech_Task3_Ankh_Morpork_MVC_.Models.Thieves
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-
-<div>@CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
 <div>Index thieve</div>
 <div>@Model.Name --- @ThievesGuild.MoneySteel</div>
 <div>Theft Limit: @ThievesGuild.TheftLimit</div>

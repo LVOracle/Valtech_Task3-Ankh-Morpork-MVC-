@@ -381,7 +381,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_ValidationCssStylePartilal.cshtml" />
     <Content Include="Views\Shared\_ValidationMetaPartial.cshtml" />
@@ -400,6 +399,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\AssassinsGuild\AvailableAssassins.cshtml" />
+    <Content Include="Views\Shared\_GameProcessLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

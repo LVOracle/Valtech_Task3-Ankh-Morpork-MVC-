@@ -34,7 +34,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
 
             CurrentPlayerProcessor.CurrentPlayer = CurrentPlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId());
 
-            if (thieve != null) CurrentPlayerProcessor.CurrentPlayer.LoseMoney(ThievesGuild.MoneySteel);
+            CurrentPlayerProcessor.CurrentPlayer.LoseMoney(ThievesGuild.MoneySteel);
 
             CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 
