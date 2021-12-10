@@ -17,15 +17,13 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
             MoneyChecker = CurrentPlayerProcessor.CurrentPlayer.Money;
         }
 
-        public void GameOver()
+        public void StartInitialization()
         {
             ++CurrentPlayerProcessor.CurrentPlayer.AmountOfGames;
 
             CurrentPlayerProcessor.CurrentPlayer.Money = 100m;
 
-            CurrentPlayerProcessor.CurrentPlayer.Step = 0;
-
-            CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer = 0;
+            CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer = 1;
 
             if (CurrentPlayerProcessor.CurrentPlayer.Step > CurrentPlayerProcessor.CurrentPlayer.MaxAmountOfSteps)
                 CurrentPlayerProcessor.CurrentPlayer.MaxAmountOfSteps = CurrentPlayerProcessor.CurrentPlayer.Step;
@@ -39,12 +37,6 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
         {
             CurrentPlayerProcessor.CurrentPlayer.IncrementStep();
             CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
-        }
-
-        public void BuyBeer(int number)
-        {
-            if (CurrentPlayerProcessor.CurrentPlayer.BuyBeer(number))
-                CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
         }
     }
 }

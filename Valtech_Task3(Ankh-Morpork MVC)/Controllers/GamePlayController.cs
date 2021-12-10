@@ -15,7 +15,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
         }
         public ActionResult GameOver()
         {
-            GameController.GameOver();
+            GameController.StartInitialization();
             return View();
         }
     }

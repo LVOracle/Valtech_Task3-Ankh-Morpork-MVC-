@@ -41,14 +41,9 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
             {
                 --CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer;
 
-                if (CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer <= 0)
-                {
-                    return RedirectToAction("GameOver", "GamePlay");
-                }
-
                 CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 
-                return RedirectToAction("Action");
+                return CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer < 0 ? RedirectToAction("GameOver", "GamePlay") : RedirectToAction("Action");
             }
 
             if (beggar != null) CurrentPlayerProcessor.CurrentPlayer.LoseMoney(beggar.GiveMoney);
