@@ -6,6 +6,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models
     {
         public decimal Money { get; set; }
         public bool IsKilled { get; set; }
+        public int AmountOfGames { get; set; } = 0;
         public Player()
         {
             Money = 100m;

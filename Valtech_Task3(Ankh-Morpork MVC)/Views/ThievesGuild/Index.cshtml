@@ -9,6 +9,7 @@
 <div>@CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
 <div>Index thieve</div>
 <div>@Model.Name --- @ThievesGuild.MoneySteel</div>
+<div>@ThievesGuild.TheftLimit</div>
 
 @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
 @Html.ActionLink("No", "AnswerNo")

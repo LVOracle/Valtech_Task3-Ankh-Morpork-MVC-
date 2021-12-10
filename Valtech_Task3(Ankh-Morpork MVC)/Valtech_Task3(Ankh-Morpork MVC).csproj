@@ -312,6 +312,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112081613306_InitialCreate.cs" />
+    <Compile Include="Migrations\202112081613306_InitialCreate.Designer.cs">
+      <DependentUpon>202112081613306_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112100912161_AmountOfGamesForPlayer.cs" />
+    <Compile Include="Migrations\202112100912161_AmountOfGamesForPlayer.Designer.cs">
+      <DependentUpon>202112100912161_AmountOfGamesForPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\AccountContext.cs" />
     <Compile Include="Models\IRepository\IAnkhMorporkRepository.cs" />
     <Compile Include="Models\Player.cs" />
@@ -337,6 +346,7 @@
     <Compile Include="Resources\BeggarsGuild.cs" />
     <Compile Include="Resources\FoolsGuild.cs" />
     <Compile Include="Resources\Guild.cs" />
+    <Compile Include="Services\GameController.cs" />
     <Compile Include="Services\GuildProcessor.cs" />
     <Compile Include="Resources\ThievesGuild.cs" />
     <Compile Include="Services\CurrentPlayerProcessor.cs" />
@@ -400,6 +410,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112081613306_InitialCreate.resx">
+      <DependentUpon>202112081613306_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112100912161_AmountOfGamesForPlayer.resx">
+      <DependentUpon>202112100912161_AmountOfGamesForPlayer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

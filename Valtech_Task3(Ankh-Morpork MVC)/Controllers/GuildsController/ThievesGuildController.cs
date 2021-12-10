@@ -4,7 +4,6 @@ using Microsoft.AspNet.Identity;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels;
 using Valtech_Task3_Ankh_Morpork_MVC_.Resources;
 using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 
@@ -21,7 +20,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         public ActionResult Index()
         {
             var thieve = ThievesGuild.GetThieve();
-
+            --ThievesGuild.TheftLimit;
             return View(thieve);
         }
         public ActionResult Action()

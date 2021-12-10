@@ -7,7 +7,11 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
     {
         public static string GetRandomGuild()
         {
-            var randomNumberOfTheGuild = RandomGenerate.GetRandom(0, GuildProcessor.GetAllGuilds().Length);
+            int randomNumberOfTheGuild;
+            do
+            {
+                randomNumberOfTheGuild = RandomGenerate.GetRandom(0, GuildProcessor.GetAllGuilds().Length);
+            } while (ThievesGuild.TheftLimit == 0 && randomNumberOfTheGuild == 3);
             var guildName = GuildProcessor.GetAllGuilds().ElementAt(randomNumberOfTheGuild).GetType().Name;
             return guildName;
         }
