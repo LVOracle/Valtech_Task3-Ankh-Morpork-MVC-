@@ -12,11 +12,9 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
             _currentPlayerProcessor = new CurrentPlayerProcessor();
             CurrentPlayerProcessor.CurrentPlayer = CurrentPlayerProcessor.GetCurrentPlayer(id);
             CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
-            if (!IsGameOver)
-            {
-                ThievesGuild.TheftLimit = 6;
-                CurrentPlayerProcessor.CurrentPlayer.Money = 100m;
-            }
+            if (!IsGameOver) return;
+            ThievesGuild.TheftLimit = 6;
+            CurrentPlayerProcessor.CurrentPlayer.Money = 100m;
         }
     }
 }

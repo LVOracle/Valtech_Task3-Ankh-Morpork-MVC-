@@ -8,6 +8,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Context
         public DbSet<Beggars> BeggarsTable { get; set; }
         public DbSet<Fools> FoolsTable { get; set; }
         public DbSet<Thieves> ThievesTable { get; set; }
+        public AnkhMorporkGameContext() : base("AnkhMorporkGameDB") { }
         public static AnkhMorporkGameContext Create()
         {
             return new AnkhMorporkGameContext();
