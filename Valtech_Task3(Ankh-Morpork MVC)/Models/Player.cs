@@ -8,6 +8,8 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models
         public bool IsKilled { get; set; }
         public int AmountOfGames { get; set; } = 0;
         public int AmountOfBeer { get; set; } = 0;
+        public int Step { get; set; } = 0;
+        public int MaxAmountOfSteps { get; set; } = 0;
         public Player()
         {
             Money = 100m;
@@ -20,6 +22,17 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models
         public void EarnMoney(decimal money)
         {
             Money += money;
+        }
+        public void IncrementStep()
+        {
+            ++Step;
+        }
+
+        public bool BuyBeer(int number)
+        {
+            if (AmountOfBeer >= 2) return false;
+            AmountOfBeer += number;
+            return true;
         }
         public override string ToString() { return UserName; }
     }

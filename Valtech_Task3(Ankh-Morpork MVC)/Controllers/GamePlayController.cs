@@ -10,6 +10,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
         // GET: GamePlay
         public ActionResult Index()
         {
+            GameController.Step();
             return RedirectToAction("Index", GuildProcessor.GetRandomGuild());
         }
         public ActionResult GameOver()

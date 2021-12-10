@@ -1,0 +1,16 @@
+﻿@using Valtech_Task3_Ankh_Morpork_MVC_.Services
+
+@{
+    ViewBag.Title = "ToMuchBeerMan";
+}
+
+<h2>ToMuchBeerMan</h2>
+@if (CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer <= 1)
+{
+    <div>You can have only 2 beers! Now you have @CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer pint(s) of beer</div>
+    <a href='javascript:history.go(-1)'>Go to previous menu and choose another amount of beer!</a>
+}
+else
+{
+    <a href='javascript:history.go(-2)'>Go Back to the game coz you have max value of beer</a>
+}

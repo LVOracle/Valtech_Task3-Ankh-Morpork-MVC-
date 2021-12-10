@@ -13,7 +13,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Resources
         public BeggarsGuild() : base("Beggar","MONETA SVPERVACANEA, MAGISTER (Coin Svpervacanea, Magister)"){}
         public static Beggars GetBeggar()
         {
-            var beggarRandomNumber = RandomGenerate.GetRandom(0, BeggarsRepository.GetGuildMembersEnumerable.Count());
+            var beggarRandomNumber = RandomGenerate.GetRandom(10,BeggarsRepository.GetGuildMembersEnumerable.Count());
             var beggar = BeggarsRepository.GetGuildMembersEnumerable.ElementAt(beggarRandomNumber);
             return beggar;
         }

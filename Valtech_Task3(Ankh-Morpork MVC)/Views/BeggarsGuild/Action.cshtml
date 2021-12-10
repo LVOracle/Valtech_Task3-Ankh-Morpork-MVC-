@@ -3,7 +3,13 @@
     ViewBag.Title = "Action";
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-
-<h2>Action beggars</h2>
-<div>You pay @Model.GiveMoney dollars to @Model.Name</div>
+@if (Model.GiveMoney == 0)
+{
+    <div>You gave him beer</div>
+}
+else
+{
+    <h2>Action beggars</h2>
+    <div>You pay @Model.GiveMoney dollars to @Model.Name</div>
+}
 @Html.ActionLink("Next step", "Index", "GamePlay")

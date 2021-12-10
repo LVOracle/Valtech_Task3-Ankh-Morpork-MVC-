@@ -5,8 +5,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-<div>Index beggar</div>
-<div>@Model.Name --- @Model.GiveMoney</div>
-
+@if (Model.GiveMoney == 0)
+{
+    <div>You meet man who like beer</div>
+    <div>Can you give to him it?</div>
+}
+else
+{
+    <div>Index beggar</div>
+    <div>@Model.Name --- @Model.GiveMoney</div>
+}
 @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
 @Html.ActionLink("No", "AnswerNo")

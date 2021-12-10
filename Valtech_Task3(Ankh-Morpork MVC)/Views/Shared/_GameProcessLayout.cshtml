@@ -9,6 +9,14 @@
 </head>
 <body>
 <div>@CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
+<div>Amount of steps: @CurrentPlayerProcessor.CurrentPlayer.Step</div>
+<div>Amount pint of beer: @CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer</div>
+<div>
+    @if (CurrentPlayerProcessor.CurrentPlayer.Step % 5 == 0)
+    {
+        @Html.ActionLink("Pub","Index","TheMendedDrumPub")
+    }
+</div>
 <br/>
 <br/>
 @RenderBody()

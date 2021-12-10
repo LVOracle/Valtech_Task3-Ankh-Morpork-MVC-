@@ -35,16 +35,27 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
 
             CurrentPlayerProcessor.CurrentPlayer = CurrentPlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId());
 
+            TempData["Beggar"] = beggar;
+
+            if (beggar.GiveMoney == 0)
+            {
+                --CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer;
+
+                if (CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer <= 0)
+                {
+                    return RedirectToAction("GameOver", "GamePlay");
+                }
+
+                CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
+
+                return RedirectToAction("Action");
+            }
+
             if (beggar != null) CurrentPlayerProcessor.CurrentPlayer.LoseMoney(beggar.GiveMoney);
 
             CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 
-            if (CurrentPlayerProcessor.CurrentPlayer.Money <= 0)
-                return RedirectToAction("OutOfMoney", "Player");
-
-            TempData["Beggar"] = beggar;
-            
-            return RedirectToAction("Action");
+            return CurrentPlayerProcessor.CurrentPlayer.Money <= 0 ? RedirectToAction("OutOfMoney", "Player") : RedirectToAction("Action");
         }
         public ActionResult AnswerNo()
         {
