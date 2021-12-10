@@ -72,7 +72,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 
         public ActionResult OutOfMoney()
         {
-            return View();
+            return RedirectToAction("GameOver", "GamePlay");
         }
     }
 }

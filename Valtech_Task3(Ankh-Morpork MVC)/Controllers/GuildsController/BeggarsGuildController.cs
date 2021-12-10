@@ -39,6 +39,9 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
 
             CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 
+            if (CurrentPlayerProcessor.CurrentPlayer.Money <= 0)
+                return RedirectToAction("OutOfMoney", "Player");
+
             TempData["Beggar"] = beggar;
             
             return RedirectToAction("Action");

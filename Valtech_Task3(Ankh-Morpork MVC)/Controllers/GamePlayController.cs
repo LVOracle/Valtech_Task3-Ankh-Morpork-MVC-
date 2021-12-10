@@ -10,8 +10,6 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
         // GET: GamePlay
         public ActionResult Index()
         {
-            if (GameController.MoneyChecker <= 0)
-                return RedirectToAction("GameOver");
             return RedirectToAction("Index", GuildProcessor.GetRandomGuild());
         }
         public ActionResult GameOver()

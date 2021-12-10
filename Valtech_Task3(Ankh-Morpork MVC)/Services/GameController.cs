@@ -6,7 +6,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
     public class GameController
     {
         private CurrentPlayerProcessor _currentPlayerProcessor;
-        public decimal MoneyChecker { get; set; }
+        public static decimal MoneyChecker { get; set; }
         public GameController(string id)
         {
             _currentPlayerProcessor = new CurrentPlayerProcessor();
