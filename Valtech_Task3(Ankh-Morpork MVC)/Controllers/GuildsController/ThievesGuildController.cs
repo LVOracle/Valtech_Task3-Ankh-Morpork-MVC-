@@ -20,13 +20,12 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         public ActionResult Index()
         {
             var thieve = ThievesGuild.GetThieve();
-            --ThievesGuild.TheftLimit;
             return View(thieve);
         }
         public ActionResult Action()
         {
             var thieve = TempData["Thieve"] as Thieves;
-
+            --ThievesGuild.TheftLimit;
             return View(thieve);
         }
         public ActionResult AnswerYes(Thieves thieve_)

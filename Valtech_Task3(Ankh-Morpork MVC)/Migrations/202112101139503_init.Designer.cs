@@ -7,13 +7,13 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AmountOfGamesForPlayer : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AmountOfGamesForPlayer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "202112100912161_AmountOfGamesForPlayer"; }
+            get { return "202112101139503_init"; }
         }
         
         string IMigrationMetadata.Source

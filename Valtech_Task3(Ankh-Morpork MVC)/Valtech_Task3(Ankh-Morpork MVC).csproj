@@ -312,13 +312,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202112081613306_InitialCreate.cs" />
-    <Compile Include="Migrations\202112081613306_InitialCreate.Designer.cs">
-      <DependentUpon>202112081613306_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112100912161_AmountOfGamesForPlayer.cs" />
-    <Compile Include="Migrations\202112100912161_AmountOfGamesForPlayer.Designer.cs">
-      <DependentUpon>202112100912161_AmountOfGamesForPlayer.cs</DependentUpon>
+    <Compile Include="Migrations\202112101139503_init.cs" />
+    <Compile Include="Migrations\202112101139503_init.Designer.cs">
+      <DependentUpon>202112101139503_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\AccountContext.cs" />
@@ -412,11 +408,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202112081613306_InitialCreate.resx">
-      <DependentUpon>202112081613306_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112100912161_AmountOfGamesForPlayer.resx">
-      <DependentUpon>202112100912161_AmountOfGamesForPlayer.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202112101139503_init.resx">
+      <DependentUpon>202112101139503_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

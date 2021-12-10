@@ -3,7 +3,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -37,6 +37,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Migrations
                         Id = c.String(nullable: false, maxLength: 128),
                         Money = c.Decimal(nullable: false, precision: 18, scale: 2),
                         IsKilled = c.Boolean(nullable: false),
+                        AmountOfGames = c.Int(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
