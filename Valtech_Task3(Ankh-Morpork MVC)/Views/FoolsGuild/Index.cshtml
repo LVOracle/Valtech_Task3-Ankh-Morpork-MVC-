@@ -7,6 +7,8 @@
 }
 <div>Index fool</div>
 <div>@Model.Name --- @Model.TakeMoney</div>
-
+<div>
+    <img src="~/img/FoolsImages/@(Model.ImageName)" height="200" width="250" alt="" />
+</div>
 @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
 @Html.ActionLink("No", "AnswerNo")

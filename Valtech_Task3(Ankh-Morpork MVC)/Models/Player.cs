@@ -8,6 +8,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models
         public bool IsKilled { get; set; }
         public int AmountOfGames { get; set; } = 0;
         public int AmountOfBeer { get; set; } = 1;
+        public bool HaveBeer { get; set; } = true;
         public int Step { get; set; } = 0;
         public int MaxAmountOfSteps { get; set; } = 0;
         public Player()

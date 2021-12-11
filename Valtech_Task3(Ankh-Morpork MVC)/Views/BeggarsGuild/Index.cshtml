@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
-@using Valtech_Task3_Ankh_Morpork_MVC_.Services
-@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Beggars
+﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Beggars
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
@@ -15,5 +13,8 @@ else
     <div>Index beggar</div>
     <div>@Model.Name --- @Model.GiveMoney</div>
 }
+<div>
+    <img src="~/img/BeggarsImages/@(Model.ImageName)" height="200" width="250" alt=""/>
+</div>
 @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
 @Html.ActionLink("No", "AnswerNo")

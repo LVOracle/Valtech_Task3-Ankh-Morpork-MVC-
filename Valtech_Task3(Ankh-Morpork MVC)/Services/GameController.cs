@@ -1,5 +1,4 @@
-﻿using System.Data.Entity.Core.Mapping;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Valtech_Task3_Ankh_Morpork_MVC_.Resources;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
@@ -27,6 +26,10 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
 
             if (CurrentPlayerProcessor.CurrentPlayer.Step > CurrentPlayerProcessor.CurrentPlayer.MaxAmountOfSteps)
                 CurrentPlayerProcessor.CurrentPlayer.MaxAmountOfSteps = CurrentPlayerProcessor.CurrentPlayer.Step;
+
+            CurrentPlayerProcessor.CurrentPlayer.Step = 0;
+
+            CurrentPlayerProcessor.CurrentPlayer.HaveBeer = true;
 
             CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 

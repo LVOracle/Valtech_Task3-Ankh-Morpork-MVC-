@@ -1,5 +1,4 @@
-﻿@using Microsoft.Net.Http.Headers
-@model IEnumerable<Valtech_Task3_Ankh_Morpork_MVC_.Models.Assassins>
+﻿@model IEnumerable<Valtech_Task3_Ankh_Morpork_MVC_.Models.Assassins>
 @{
     ViewBag.Title = "AvailableAssassins";
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
@@ -15,6 +14,9 @@ else
     foreach (var assassin in Model)
     {
         <div>@assassin.Name</div>
+        <div>
+            <img src="~/img/AssassinsImages/@(assassin.ImageName)" height="200" width="250" alt=""/>
+        </div>
     }
     if (Model.Count() == 1)
     {

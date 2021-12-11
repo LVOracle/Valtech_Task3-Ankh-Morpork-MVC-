@@ -7,9 +7,12 @@
 {
     <div>You out of money!</div>
 }
-else if (CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer <= 1)
+else if (CurrentPlayerProcessor.CurrentPlayer.HaveBeer == false)
 {
     <div>You try to give to the beggar the beer, but you haven't!</div>
+    <div>
+        <img src="~/img/BeggarsImages/BEERSAD.jpg)" height="200" width="250" alt=""/>
+    </div>
 }
 else
 {

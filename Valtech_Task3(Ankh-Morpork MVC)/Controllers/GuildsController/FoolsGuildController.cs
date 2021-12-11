@@ -15,7 +15,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         private readonly FoolsRepository _foolsRepository =
             new FoolsRepository(AnkhMorporkGameContext.Create());
 
-        private CurrentPlayerProcessor playerProcessor = new CurrentPlayerProcessor();
+        private CurrentPlayerProcessor _playerProcessor = new CurrentPlayerProcessor();
 
         public ActionResult Index()
         {

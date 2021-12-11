@@ -6,7 +6,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 {
     public class TheMendedDrumPubController : Controller
     {
-        private CurrentPlayerProcessor playerProcessor = new CurrentPlayerProcessor();
+        private CurrentPlayerProcessor _playerProcessor = new CurrentPlayerProcessor();
 
         // GET: TheMendedDrumPub
         public ActionResult Index()

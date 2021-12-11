@@ -12,7 +12,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
     [Authorize]
     public class AssassinsGuildController : Controller
     {
-        private CurrentPlayerProcessor playerProcessor = new CurrentPlayerProcessor();
+        private CurrentPlayerProcessor _playerProcessor = new CurrentPlayerProcessor();
 
         private readonly AssassinsRepository _assassinsRepository =
             new AssassinsRepository(AnkhMorporkGameContext.Create());

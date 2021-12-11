@@ -18,7 +18,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
 
         public static Player GetCurrentPlayer(string id)
         {
-            Player player = PlayerManager.FindById(id);
+            var player = PlayerManager.FindById(id);
             return player;
         }
         public static string PlayerBalanceTextVariant(decimal money)

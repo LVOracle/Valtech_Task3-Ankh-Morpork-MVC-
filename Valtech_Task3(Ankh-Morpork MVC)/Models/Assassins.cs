@@ -7,6 +7,7 @@
         public  decimal MaxRange { get; set; }
         public decimal MinRange { get; set; }
         public bool IsOccupied { get; set; }
+        public string ImageName { get; set; }
         public override string ToString() { return Name; }
     }
 }

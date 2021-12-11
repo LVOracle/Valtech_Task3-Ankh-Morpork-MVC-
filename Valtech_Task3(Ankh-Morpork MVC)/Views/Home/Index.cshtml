@@ -1,11 +1,10 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@model Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.GameEntitiesViewModel
 @if (User.Identity.IsAuthenticated) 
 {
     <p>Hello @User.Identity.Name</p>
-    @Html.ActionLink("Play","Index","GamePlay", new {model = Model}, null);
+    @Html.ActionLink("Play","Play","GamePlay");
     using (Html.BeginForm("Logout", "Account", FormMethod.Post))
     {
         <input type="submit" value="Exit"/>

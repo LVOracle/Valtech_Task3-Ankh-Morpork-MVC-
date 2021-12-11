@@ -321,6 +321,10 @@
     <Compile Include="Migrations\202112101525007_Steps.Designer.cs">
       <DependentUpon>202112101525007_Steps.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112111347519_BeerChecker.cs" />
+    <Compile Include="Migrations\202112111347519_BeerChecker.Designer.cs">
+      <DependentUpon>202112111347519_BeerChecker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\AccountContext.cs" />
     <Compile Include="Models\IRepository\IAnkhMorporkRepository.cs" />
@@ -410,6 +414,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\AssassinsImages\" />
+    <Folder Include="img\BeggarsImages\" />
+    <Folder Include="img\FoolsImages\" />
+    <Folder Include="img\ThievesImages\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -420,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112101525007_Steps.resx">
       <DependentUpon>202112101525007_Steps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112111347519_BeerChecker.resx">
+      <DependentUpon>202112111347519_BeerChecker.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
