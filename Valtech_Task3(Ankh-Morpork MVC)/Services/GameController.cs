@@ -12,8 +12,6 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
             _currentPlayerProcessor = new CurrentPlayerProcessor();
             
             CurrentPlayerProcessor.CurrentPlayer = CurrentPlayerProcessor.GetCurrentPlayer(id);
-
-            MoneyChecker = CurrentPlayerProcessor.CurrentPlayer.Money;
         }
 
         public void StartInitialization()

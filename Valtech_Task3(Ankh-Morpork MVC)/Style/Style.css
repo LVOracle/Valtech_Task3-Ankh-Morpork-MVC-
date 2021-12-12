@@ -1,0 +1,172 @@
+﻿html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Gwendolyn', cursive;
+    min-height: 100%;
+    width: 100%;
+    background-image: url(/img/ApplicationImages/home.jpg);
+    background-position: center;
+}
+
+.link-style {
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 40px;
+    color: black;
+}
+
+.link-style:hover {
+    text-decoration: none;
+    color:saddlebrown;
+}
+
+.link-style-enter {
+    width: 100px;
+    color: rgb(0, 0, 0);
+    float: left;
+    cursor: pointer;
+    font-size: 30px;
+    text-decoration: none;
+    outline: none;
+    padding: 20px 16px;
+    margin: -20px -14px;
+}
+
+.link-style-enter:hover {
+    text-decoration: none;
+    color: saddlebrown;
+}
+/*LayoutPage*/
+
+.layout-header {
+    width: 100%;
+    height: 60px;
+    background-image: url(/img/ApplicationImages/header.png);
+}
+
+.logo-position {
+    float: left;
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 25px;
+}
+
+.image-position {
+    float: left;
+    padding-left: 0;
+}
+
+.player-info {
+    float: right;
+    padding: 20px 30px 1px;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.button-exit {
+    height: 60px;
+    color: white;
+    background-color: black;
+    border: none;
+    margin: -20px 2px 0 0;
+}
+
+.button-exit:hover {
+    color: red;
+}
+
+/*Index-Home*/
+
+.regulations {
+    color: black;
+    width: 650px;
+    height: 512px;
+    margin: 50px auto;
+    background-image: url(/img/ApplicationImages/papirus.png);
+}
+
+.regulations-title {
+    padding: 20px 250px 0;
+}
+
+.regulations-info {
+    padding: 50px 50px 0;
+}
+
+.regulations-info p {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.play-button-position {
+    padding: 65px 300px 0;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.play-button {
+    color: black;
+}
+
+.play-button:hover {
+    text-decoration: none;
+    color: saddlebrown;
+}
+
+/*Login*/
+
+.authorization-page {
+    margin: 50px auto;
+    width: 900px;
+    height: 600px;
+    font-size: 40px;
+    background-image: url(/img/ApplicationImages/papirus2.png);
+}
+
+.authorization-page h1 {
+    width: 60%;
+    height: 10%;
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.text-danger {
+    color: red;
+}
+
+.authorization-label {
+    width: 200px;
+    font-size: 50px;
+    float: left;
+}
+
+.authorization-login {
+    width: 206px;
+    font-size: 20px;
+    color: black;
+    text-align: right;
+}
+
+.authorization-position {
+    width: 100%;
+    margin: 0 5%;
+}
+
+.authorization-button {
+    padding: 7px 375px;
+    color: white;
+    background-color: black;
+}
+
+.authorization-variants {
+    float: left;
+    margin-left: 200px;
+}

@@ -14,7 +14,8 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
             return RedirectToAction("Index", GuildProcessor.GetRandomGuild());
         }
         public ActionResult GameOver()
-        { 
+        {
+            GameController.MoneyChecker = CurrentPlayerProcessor.CurrentPlayer.Money;
             return View();
         }
         public ActionResult Play()

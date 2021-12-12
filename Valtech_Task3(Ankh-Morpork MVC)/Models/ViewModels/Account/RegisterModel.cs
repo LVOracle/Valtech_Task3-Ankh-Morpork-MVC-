@@ -12,6 +12,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Account
         [Required]
         [Compare("Password", ErrorMessage = "Passwords are not equal")]
         [DataType(DataType.Password)]
+        [Display(Name="Confirm")]
         public string PasswordConfirm { get; set; }
     }
 }

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("_ValidationMetaPartial")
+    <title>Ankh Morpork Game</title>
+    @Html.Partial("_ValidationCssStylePartilal")
+</head>
+<body>
+<div class="layout-header">
+    <div class="image-position">
+                <img src="~/img/ApplicationImages/logo.jpg" alt="logo image" width="60" height="60" />
+            </div>
+            <div class="logo-position">
+                @Html.ActionLink("Ankh Morpork Game", "Index", "Home", null, new { @class = "link-style" })
+            </div>
+        @if (User.Identity.IsAuthenticated) 
+            {
+                <div class="player-info">
+                    @using (Html.BeginForm("Logout", "Account", FormMethod.Post))
+                        {
+                            <input type="submit" value="Exit" class="button-exit">
+                        }
+                    </div>
+                <div class="player-info">
+                    <p>Walker @User.Identity.Name</p>
+                </div>
+            }
+            else
+            {
+                <div class="player-info">
+                        @Html.ActionLink("Registration", "Register", "Account",null, new { @class = "link-style-enter" })
+                    </div>
+                <div class="player-info">
+                        @Html.ActionLink("Login","Login","Account",null, new { @class = "link-style-enter" })
+                </div>
+            }
+</div>
+@RenderBody()
+@Html.Partial("_ValidationScriptsPartial")
+@RenderSection("scripts", required: false)
+</body>
+</html>

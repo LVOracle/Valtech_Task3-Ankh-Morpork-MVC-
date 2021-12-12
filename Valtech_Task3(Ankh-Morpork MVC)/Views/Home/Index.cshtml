@@ -1,17 +1,23 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-@if (User.Identity.IsAuthenticated) 
-{
-    <p>Hello @User.Identity.Name</p>
-    @Html.ActionLink("Play","Play","GamePlay");
-    using (Html.BeginForm("Logout", "Account", FormMethod.Post))
-    {
-        <input type="submit" value="Exit"/>
-    }
-}
-else
-{
-    @Html.ActionLink("Registration", "Register", "Account")
-    @Html.ActionLink("Login","Login","Account")
-}
+﻿@if (User.Identity.IsAuthenticated)
+        {
+            <div class="regulations">
+                <div class="regulations-title">
+                    <h1>Regulations</h1>
+                </div>
+                <div class="regulations-info">
+                    <p>Welcome to the wonderful game Ankh Morpork! Here you can find out rules: </p>
+                    <p>Each walker gets 100 AM$ on balance and 1 pint of beer!</p>
+                    <p>You have a chance to meet people some of them are friends, but others not!(Assassin,   Thief,   Beggar,   Fool   (friend)</p>
+                    <p>When you meet them you have to give them what they want otherwise you will be killed!</p>
+                    <p>Your friends can give you money if you accept there tasks!</p>
+                    <h1>Good luck have fun</h1>
+                </div>
+                <div class="play-button-position">
+                    @Html.ActionLink("Play", "Play", "GamePlay",null, new {@class="play-button"})
+                </div>
+            </div>
+        }
+        else
+        {
+            <div>You must enter to the site</div>
+        }
