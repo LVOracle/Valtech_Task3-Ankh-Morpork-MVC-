@@ -2,6 +2,9 @@
 @{
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-<h2>Action beggars</h2>
-    <div>@Model.Name give you @Model.TakeMoney AM$</div>
-    @Html.ActionLink("Next step", "Index", "GamePlay")
+<div class="gameplay-info-position">
+    <h2>@Model.Name give you @Model.TakeMoney AM$</h2>
+    <div class="authorization-variants">
+        @Html.ActionLink("Next step", "Index", "GamePlay",null, new {@class="link-style"})
+    </div>
+</div>

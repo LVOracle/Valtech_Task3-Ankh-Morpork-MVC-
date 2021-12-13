@@ -1,17 +1,23 @@
 ﻿@using Valtech_Task3_Ankh_Morpork_MVC_.Services
+@{
+    Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
+}
+<div class="gameplay-info-position">
     @if (GameController.MoneyChecker <= 0)
     {
-        <div>You out of money!</div>
+        <h2>You out of money!</h2>
     }
     else if (CurrentPlayerProcessor.CurrentPlayer.HaveBeer == false)
     {
-        <div>You try to give to the beggar the beer, but you haven't!</div>
-        <div>
-            <img src="~/img/BeggarsImages/BEERSAD.jpg)" height="200" width="250" alt=""/>
-        </div>
+        <h2>You try to give to the beggar the beer, but you haven't!</h2>
+        <img src="/img/BeggarsImages/13.jpg" height="250" alt="" />
     }
     else
     {
-        <div>You was killed!</div>
+        <h2>You was killed!</h2>
     }
     <h2>GameOver</h2>
+    <div class="authorization-variants">
+        @Html.ActionLink("Home page", "Index", "Home",null,new {@class="link-style"})
+    </div>
+</div>

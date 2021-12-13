@@ -2,13 +2,18 @@
 @{
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-@if (Model.GiveMoney == 0)
+<div class="gameplay-info-position">
+    @if (Model.GiveMoney == 0)
     {
-        <div>You gave him beer</div>
+        <h2>You gave him beer!</h2>
+        <img src="/img/BeggarsImages/12.jpg" height="250" alt="" />
+        <br/>
     }
     else
     {
-        <h2>Action beggars</h2>
-        <div>You pay @Model.GiveMoney dollars to @Model.Name</div>
+        <h2>You pay @Model.GiveMoney dollars to @Model.Name</h2>
     }
-    @Html.ActionLink("Next step", "Index", "GamePlay")
+    <div class="authorization-variants">
+        @Html.ActionLink("Next step", "Index", "GamePlay", null,new{@class="link-style"})
+    </div>
+</div>

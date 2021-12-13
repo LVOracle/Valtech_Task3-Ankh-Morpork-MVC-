@@ -2,32 +2,33 @@
 @{
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-@if (!Model.Any())
+<div class="gameplay-info-position">
+    @if (!Model.Any())
     {
-        <div>All assassins are occupied or amount of money to low or to much! Made it in range 4-45 dollars!</div>
-        @Html.ActionLink("Make another answer", "Action")
-
+        <h2>All assassins are occupied or amount of money to low or to much! Made it in range 4-45 dollars!</h2>
+        <div class="authorization-variants">
+            @Html.ActionLink("Make another answer", "Action", null,new {@class="link-style"})
+        </div>
     }
     else
     {
-        foreach (var assassin in Model)
+         if (Model.Count() == 1)
         {
-            <div>@assassin.Name</div>
-            <div>
-                <img src="~/img/AssassinsImages/@(assassin.ImageName)" height="200" width="250" alt=""/>
-            </div>
-        }
-        if (Model.Count() == 1)
-        {
-            <div>You find only one assassin!</div>
-            <div>You pay to him!</div>
+            <h2>You find only one assassin! You pay to him!</h2>
         }
         else
         {
-            <div>You find @Model.Count() assassins!</div>
-            <div>You take first of them! Pay to @Model.ElementAtOrDefault(0)</div>
+            <h2>You find @Model.Count() assassins! You take first of them! Pay to @Model.ElementAtOrDefault(0) !</h2>
         }
-        <span> Congratulation you in the safety!</span>
-        @Html.ActionLink("Next step", "Index", "GamePlay")
+        foreach (var assassin in Model)
+        {
+            <div class="assassins-list">
+                <h2>@assassin.Name</h2>
+                <img src="~/img/AssassinsImages/@(assassin.ImageName)" height="250" alt=""/>
+            </div>
+        }
+        <div class="authorization-variants">
+            @Html.ActionLink("Next step", "Index", "GamePlay", null,new {@class="link-style"})
+        </div>
     }
-    <h2>ListOfAvailableAssassins</h2>
+</div>

@@ -29,9 +29,12 @@
         <div class="player-info">
             <div>Step: @CurrentPlayerProcessor.CurrentPlayer.Step</div>
         </div>
-        <div class="player-info">
-            <div>Beer: @CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer</div>
-        </div>
+        if (CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer >= 0)
+        {
+            <div class="player-info">
+                <div>Beer: @CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer</div>
+            </div>
+        }
         <div class="player-info">
             <div>Balance: @CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
         </div>

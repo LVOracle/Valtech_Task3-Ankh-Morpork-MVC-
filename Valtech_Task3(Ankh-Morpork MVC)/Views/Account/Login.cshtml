@@ -10,25 +10,23 @@
             <div class="authorization-position">
                 @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
-                    <div>
-                        @Html.LabelFor(model => model.Name, htmlAttributes: new {@class = "authorization-label" })
-                    </div>
-                    <div>
-                        @Html.EditorFor(model => model.Name, new {htmlAttributes = new {@class = "authorization-login" } })
-                        @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})
-                    </div>
+                <table>
+                    <tr>
+                        <th style="width:200px"> @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "authorization-label" })</th>
+                        <th> @Html.EditorFor(model => model.Name, new {htmlAttributes = new {@class = "authorization-login" } })</th>
+                        <th style="margin-left: 10px;"> @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})</th>
+                    </tr>
+                </table>
 
-                    <div>
-                        @Html.LabelFor(model => model.Password, htmlAttributes: new {@class = "authorization-label" })
-                    </div>
-                    <div>
-                        @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@class = "form-login"}})
-                        @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
-                    </div>
-
-                    <div>
-                        <input type="submit" value="Login" class="authorization-button"/>
-                    </div>
+                <table>
+                    <tr>
+                        <th style="width:200px"> @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "authorization-label" })</th>
+                        <th> @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@class = "authorization-login" } })</th>
+                        <th style="margin-left: 10px;"> @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})</th>
+                    </tr>
+                </table>
+           
+                <input type="submit" value="Login" class="authorization-button"/>
             </div>
         }
 
