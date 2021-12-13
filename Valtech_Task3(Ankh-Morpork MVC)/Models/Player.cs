@@ -31,7 +31,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models
 
         public bool BuyBeer(int number)
         {
-            if (AmountOfBeer >= 2) return false;
+            if (AmountOfBeer >= 2 || number > 2) return false;
             AmountOfBeer += number;
             return true;
         }

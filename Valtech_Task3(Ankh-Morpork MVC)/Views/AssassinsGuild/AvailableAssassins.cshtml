@@ -23,12 +23,12 @@
         foreach (var assassin in Model)
         {
             <div class="assassins-list">
-                <h2>@assassin.Name</h2>
+                <h2 style="text-align: center; font-weight: bold;">@assassin.Name</h2>
                 <img src="~/img/AssassinsImages/@(assassin.ImageName)" height="250" alt=""/>
             </div>
         }
-        <div class="authorization-variants">
-            @Html.ActionLink("Next step", "Index", "GamePlay", null,new {@class="link-style"})
-        </div>
     }
+    <div class="authorization-variants">
+        @Html.ActionLink("Next step", "Index", "GamePlay", null,new {@class="link-style"})
+    </div>
 </div>

@@ -223,10 +223,10 @@ body {
     border-radius: 20px; 
 }
 
-    .button-for-assassin:hover {
-        color: black;
-        background-color: saddlebrown;
-    }
+.button-for-assassin:hover {
+    color: black;
+    background-color: saddlebrown;
+}
 
 .assassins-list {
     float: left;

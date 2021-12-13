@@ -38,6 +38,9 @@
         <div class="player-info">
             <div>Balance: @CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
         </div>
+        <div class="player-info">
+            <div>Step record: @CurrentPlayerProcessor.CurrentPlayer.MaxAmountOfSteps</div>
+        </div>
     }
     else
     {

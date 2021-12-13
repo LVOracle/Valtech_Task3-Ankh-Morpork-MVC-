@@ -420,6 +420,7 @@
     <Content Include="Views\TheMendedDrumPub\Index.cshtml" />
     <Content Include="Views\TheMendedDrumPub\ToMuchBeerMan.cshtml" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\TheMendedDrumPub\Ok.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,15 +1,13 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-
-
-
-    <h2>Index</h2>
+<div class="gameplay-info-position">
+    <h2>All beer for you my friend</h2>
     @using (Html.BeginForm("BuyBeer", "TheMendedDrumPub", FormMethod.Post))
     {
-        <input type="number" name="beer" required="required" />
+        <input type="number" name="beer" required="required" class="authorization-login"/>
         <br />
-        <input type="submit" name="Send" />
+        <input type="submit" name="Send" class="button-for-assassin"/>
     }
-    <a href='javascript:history.go(-1)'>Go Back to Previous Page</a>
+    <a href='javascript:history.go(-1)' class="link-style">Previous Page</a>
+</div>

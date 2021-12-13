@@ -25,9 +25,13 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 
             CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 
-            return RedirectToAction("Index", "GamePlay");
+            return RedirectToAction("Ok");
         }
 
+        public ActionResult Ok()
+        {
+            return View();
+        }
         public ActionResult ToMuchBeerMan()
         {
             return View();
