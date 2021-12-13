@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Account
+namespace Valtech_Task3_Ankh_Morpork_MVC_.ViewModels.Account
 {
     public class RegisterModel
     {

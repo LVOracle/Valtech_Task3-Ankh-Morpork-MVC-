@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.IRepository;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Context;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.IRepository;
+using Valtech_Task3_Ankh_Morpork_MVC_.Models;
 
-namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository
+namespace Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Repository
 {
     public class ThievesRepository : IAnkhMorporkRepository<Thieves>
     {

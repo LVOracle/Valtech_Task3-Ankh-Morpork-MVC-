@@ -1,7 +1,7 @@
 ﻿using System.Linq;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Context;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Repository;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository;
 using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Resources

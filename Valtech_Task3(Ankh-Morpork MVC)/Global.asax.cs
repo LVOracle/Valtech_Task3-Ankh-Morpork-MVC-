@@ -2,8 +2,8 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Context;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Resources;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_
 {

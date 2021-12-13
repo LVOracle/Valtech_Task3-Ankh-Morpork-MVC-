@@ -5,7 +5,7 @@
 <div class="gameplay-info-position">
     @if (!Model.Any())
     {
-        <h2>All assassins are occupied or amount of money to low or to much! Made it in range 4-45 dollars!</h2>
+    <h2>All assassins are occupied or amount of money to low or to much! Enter the amount in the range 4-45 dollars!</h2>
         <div class="authorization-variants">
             @Html.ActionLink("Make another answer", "Action", null,new {@class="link-style"})
         </div>
@@ -14,11 +14,11 @@
     {
          if (Model.Count() == 1)
         {
-            <h2>You find only one assassin! You pay to him!</h2>
+            <h2>The entered amount is suitable for one assassin. You pay exactly to him!</h2>
         }
         else
         {
-            <h2>You find @Model.Count() assassins! You take first of them! Pay to @Model.ElementAtOrDefault(0) !</h2>
+<h2>The entered amount is suitable for @Model.Count() assassins! You pay to first of them! Money goes to @Model.ElementAtOrDefault(0) !</h2>
         }
         foreach (var assassin in Model)
         {

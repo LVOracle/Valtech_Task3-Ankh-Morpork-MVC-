@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Context;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Repository;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Repository;
 using Valtech_Task3_Ankh_Morpork_MVC_.Resources;
 using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 
@@ -46,9 +46,14 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
 
             return RedirectToAction("Action");
         }
+
+        public ActionResult ActionNo()
+        {
+            return View();
+        }
         public ActionResult AnswerNo()
         {
-            return RedirectToAction("GameOver", "GamePlay");
+            return RedirectToAction("ActionNo");
         }
     }
 }

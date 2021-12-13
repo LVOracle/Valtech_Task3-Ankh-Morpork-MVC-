@@ -1,11 +1,9 @@
-﻿@using Valtech_Task3_Ankh_Morpork_MVC_.Resources
-@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Thieves
-@{
+﻿@{
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    <h2>You pay @ThievesGuild.MoneySteel AM$ to @Model.Name</h2>
+    <h2>Be careful, people from the thieves guild skillfully steal money!</h2>
     <div class="authorization-variants">
-        @Html.ActionLink("Next step", "Index", "GamePlay",null, new {@class="link-style"})
+        @Html.ActionLink("Next step", "Index", "GamePlay", null, new {@class = "link-style"})
     </div>
 </div>

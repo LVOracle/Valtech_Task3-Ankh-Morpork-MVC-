@@ -1,15 +1,18 @@
-﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Beggars
+﻿@using Valtech_Task3_Ankh_Morpork_MVC_.Services
+@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Beggars
 @{
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
     @if (Model.GiveMoney == 0)
     {
-        <h2>You meet man who like beer. Can you give to him it?</h2>
+        <h2>There is a beer lover on your way, I hope you have one pint of beer for him.</h2>
+        <h2>Isn't it?</h2>
     }
     else
     {
-        <h2>You meet beggar by name @Model.Name and he nee money in amount of @Model.GiveMoney . You give him?</h2>
+        <h2>You met one of the beggars @Model.Name and he asks you for @CurrentPlayerProcessor.PlayerBalanceTextVariant(@Model.GiveMoney)</h2>
+        <h2>Help him?</h2>                                                                                                                                         
     }
     <div>
         <img src="~/img/BeggarsImages/@(Model.ImageName)" height="250" alt=""/>

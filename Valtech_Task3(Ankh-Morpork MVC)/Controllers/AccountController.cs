@@ -4,9 +4,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Resources;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Account;
+using Valtech_Task3_Ankh_Morpork_MVC_.ViewModels.Account;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 {

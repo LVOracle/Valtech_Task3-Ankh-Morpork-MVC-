@@ -1,9 +1,11 @@
-﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Fools
+﻿@using Valtech_Task3_Ankh_Morpork_MVC_.Services
+@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Fools
 @{
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    <h2>You meet fool by name @Model.Name and he have a job for you. You can earn @Model.TakeMoney .You take it?</h2>
+    <h2>You met your friend named @Model.Name from the Guild of Fools and he asks you to help him with his work. It is not free, you will earn @CurrentPlayerProcessor.PlayerBalanceTextVariant(@Model.TakeMoney) !</h2>
+    <h2>Help him?</h2>
     <div>
         <img src="~/img/FoolsImages/@(Model.ImageName)" height="250" alt="" />
     </div>

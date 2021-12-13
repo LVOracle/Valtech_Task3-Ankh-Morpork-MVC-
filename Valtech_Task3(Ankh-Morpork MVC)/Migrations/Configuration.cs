@@ -1,15 +1,17 @@
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Context;
+
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Valtech_Task3_Ankh_Morpork_MVC_.Models.Context.AccountContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<AccountContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Valtech_Task3_Ankh_Morpork_MVC_.Models.Context.AccountContext context)
+        protected override void Seed(AccountContext context)
         {
             //  This method will be called after migrating to the latest version.
 

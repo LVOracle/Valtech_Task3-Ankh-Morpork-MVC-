@@ -2,8 +2,8 @@
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Context;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Resources;
 
 [assembly: OwinStartup(typeof(Valtech_Task3_Ankh_Morpork_MVC_.Startup))]
 namespace Valtech_Task3_Ankh_Morpork_MVC_

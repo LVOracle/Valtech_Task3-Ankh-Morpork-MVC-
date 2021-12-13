@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Context;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models.Context;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
 {

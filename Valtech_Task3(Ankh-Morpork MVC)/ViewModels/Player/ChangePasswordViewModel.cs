@@ -1,4 +1,4 @@
-﻿namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.ViewModels.Player
+﻿namespace Valtech_Task3_Ankh_Morpork_MVC_.ViewModels.Player
 {
     public class ChangePasswordViewModel
     {
