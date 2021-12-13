@@ -8,19 +8,74 @@
     @Html.Partial("_ValidationCssStylePartilal")
 </head>
 <body>
-<div>@CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
-<div>Amount of steps: @CurrentPlayerProcessor.CurrentPlayer.Step</div>
-<div>Amount pint of beer: @CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer</div>
-<div>
-    @if (CurrentPlayerProcessor.CurrentPlayer.Step % 5 == 0)
+<div class="layout-header">
+    <div class="image-position">
+        <img src="~/img/ApplicationImages/logo.jpg" alt="logo image" width="60" height="60" />
+    </div>
+    <div class="logo-position">
+        @Html.ActionLink("Ankh Morpork Game", "Index", "Home", null, new { @class = "link-style" })
+    </div>
+    @if (User.Identity.IsAuthenticated)
     {
-        @Html.ActionLink("Pub","Index","TheMendedDrumPub")
+        <div class="player-info">
+            @using (Html.BeginForm("Logout", "Account", FormMethod.Post))
+            {
+                <input type="submit" value="Exit" class="button-exit">
+            }
+        </div>
+        <div class="player-info">
+            <p>Walker @User.Identity.Name</p>
+        </div>
+        <div class="player-info">
+            <div>Step: @CurrentPlayerProcessor.CurrentPlayer.Step</div>
+        </div>
+        <div class="player-info">
+            <div>Beer: @CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer</div>
+        </div>
+        <div class="player-info">
+            <div>Balance: @CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
+        </div>
+    }
+    else
+    {
+        <div class="player-info">
+            @Html.ActionLink("Registration", "Register", "Account", null, new { @class = "link-style-enter" })
+        </div>
+        <div class="player-info">
+            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "link-style-enter" })
+        </div>
     }
 </div>
-<br/>
-<br/>
-@RenderBody()
-    @Html.Partial("_ValidationScriptsPartial")
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-10">
+            <div class="gameplay_bord">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2">
+            <div class="pub-position">
+                @if (CurrentPlayerProcessor.CurrentPlayer.Step % RandomGenerate.GetRandom(2, 9) == 0)
+                {
+                    <div class="pub-status">
+                        Open
+                    </div>
+                    <a href="@Url.Action("Index", "TheMendedDrumPub")">
+                        <img src="/img/ApplicationImages/beer.jpg" width="425" height="601" alt=""/>
+                    </a>
+                }
+                else
+                {
+                    <div class="pub-status">
+                        Close
+                    </div>
+                    <img src="/img/ApplicationImages/beerClose.jpg" width="425" height="601" alt=""/>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_ValidationScriptsPartial")
     @RenderSection("scripts", required: false)
 </body>
 </html>

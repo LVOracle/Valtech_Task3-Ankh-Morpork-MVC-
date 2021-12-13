@@ -1,20 +1,19 @@
 ﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Beggars
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 @if (Model.GiveMoney == 0)
-{
-    <div>You meet man who like beer</div>
-    <div>Can you give to him it?</div>
-}
-else
-{
-    <div>Index beggar</div>
-    <div>@Model.Name --- @Model.GiveMoney</div>
-}
-<div>
-    <img src="~/img/BeggarsImages/@(Model.ImageName)" height="200" width="250" alt=""/>
-</div>
-@Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
-@Html.ActionLink("No", "AnswerNo")
+    {
+        <div>You meet man who like beer</div>
+        <div>Can you give to him it?</div>
+    }
+    else
+    {
+        <div>Index beggar</div>
+        <div>@Model.Name --- @Model.GiveMoney</div>
+    }
+    <div>
+        <img src="~/img/BeggarsImages/@(Model.ImageName)" height="200" width="250" alt=""/>
+    </div>
+    @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
+    @Html.ActionLink("No", "AnswerNo")

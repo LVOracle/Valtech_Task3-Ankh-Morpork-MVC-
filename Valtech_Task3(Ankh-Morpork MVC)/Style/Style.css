@@ -51,7 +51,7 @@ body {
 .logo-position {
     float: left;
     padding-left: 20px;
-    padding-top: 20px;
+    padding-top: 0;
     font-size: 25px;
 }
 
@@ -62,7 +62,7 @@ body {
 
 .player-info {
     float: right;
-    padding: 20px 30px 1px;
+    padding: 10px 30px 1px;
     font-size: 30px;
     color: black;
     text-align: center;
@@ -70,15 +70,26 @@ body {
 }
 
 .button-exit {
+    position: relative;
+    top: -10px;
     height: 60px;
     color: white;
     background-color: black;
     border: none;
-    margin: -20px 2px 0 0;
 }
 
 .button-exit:hover {
     color: red;
+}
+
+.pub-status {
+    position: relative;
+    z-index: 1;
+    top: 60px;
+    right: -135px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
 }
 
 /*Index-Home*/
@@ -92,7 +103,7 @@ body {
 }
 
 .regulations-title {
-    padding: 20px 250px 0;
+    padding: 10px 250px 0;
 }
 
 .regulations-info {
@@ -101,11 +112,11 @@ body {
 
 .regulations-info p {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 19px;
 }
 
 .play-button-position {
-    padding: 65px 300px 0;
+    margin: -10px 300px 0;
     font-weight: bold;
     font-size: 50px;
 }
@@ -119,7 +130,7 @@ body {
     color: saddlebrown;
 }
 
-/*Login*/
+/*Login-Register*/
 
 .authorization-page {
     margin: 50px auto;
@@ -169,4 +180,21 @@ body {
 .authorization-variants {
     float: left;
     margin-left: 200px;
+}
+
+/*Index for game play*/
+
+.gameplay_bord {
+    position: relative;
+    top: 65px;
+    left: -170px;
+    width: 900px;
+    height: 600px;
+    background-image: url(/img/ApplicationImages/papirus2.png);
+}
+
+.pub-position {
+    position: relative;
+    top: 5px;
+    right: 150px;
 }

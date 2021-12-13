@@ -1,10 +1,11 @@
 ﻿@using Valtech_Task3_Ankh_Morpork_MVC_.Resources
 @model Valtech_Task3_Ankh_Morpork_MVC_.Models.Thieves
 @{
-    ViewBag.Title = "Action";
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 
-<h2>Action beggars</h2>
-<div>You pay @ThievesGuild.MoneySteel AM$ to @Model.Name</div>
-@Html.ActionLink("Next step", "Index", "GamePlay")
+
+
+    <h2>Action beggars</h2>
+    <div>You pay @ThievesGuild.MoneySteel AM$ to @Model.Name</div>
+    @Html.ActionLink("Next step", "Index", "GamePlay")

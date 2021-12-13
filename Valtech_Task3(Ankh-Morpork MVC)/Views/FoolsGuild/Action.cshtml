@@ -1,9 +1,7 @@
 ﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Fools
 @{
-    ViewBag.Title = "Action";
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-
 <h2>Action beggars</h2>
-<div>@Model.Name give you @Model.TakeMoney AM$</div>
-@Html.ActionLink("Next step", "Index", "GamePlay")
+    <div>@Model.Name give you @Model.TakeMoney AM$</div>
+    @Html.ActionLink("Next step", "Index", "GamePlay")

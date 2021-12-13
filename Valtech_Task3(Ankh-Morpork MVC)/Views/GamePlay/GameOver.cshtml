@@ -1,22 +1,17 @@
 ﻿@using Valtech_Task3_Ankh_Morpork_MVC_.Services
-
-@{
-    ViewBag.Title = "GameOver";
-}
-@if (GameController.MoneyChecker <= 0)
-{
-    <div>You out of money!</div>
-}
-else if (CurrentPlayerProcessor.CurrentPlayer.HaveBeer == false)
-{
-    <div>You try to give to the beggar the beer, but you haven't!</div>
-    <div>
-        <img src="~/img/BeggarsImages/BEERSAD.jpg)" height="200" width="250" alt=""/>
-    </div>
-}
-else
-{
-    <div>You was killed!</div>
-}
-<h2>GameOver</h2>
-
+    @if (GameController.MoneyChecker <= 0)
+    {
+        <div>You out of money!</div>
+    }
+    else if (CurrentPlayerProcessor.CurrentPlayer.HaveBeer == false)
+    {
+        <div>You try to give to the beggar the beer, but you haven't!</div>
+        <div>
+            <img src="~/img/BeggarsImages/BEERSAD.jpg)" height="200" width="250" alt=""/>
+        </div>
+    }
+    else
+    {
+        <div>You was killed!</div>
+    }
+    <h2>GameOver</h2>

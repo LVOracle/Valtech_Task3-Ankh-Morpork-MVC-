@@ -14,20 +14,20 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources
                 new Assassins { Name = "Star", MinRange = 7, MaxRange = 12, IsOccupied = false,ImageName = "3.jpg"},
                 new Assassins { Name = "Axe", MinRange = 15, MaxRange = 19, IsOccupied = true,ImageName = "4.png"},
                 new Assassins { Name = "Gun", MinRange = 4, MaxRange = 12, IsOccupied = true,ImageName = "5.jpg"},
-                new Assassins { Name = "Ranger", MinRange = 29, MaxRange = 45, IsOccupied = false,ImageName = "6.jfif"},
+                new Assassins { Name = "Ranger", MinRange = 29, MaxRange = 45, IsOccupied = false,ImageName = "6.jpg"},
                 new Assassins { Name = "Dodick", MinRange = 15, MaxRange = 22, IsOccupied = false,ImageName = "7.jpg"},
-                new Assassins { Name = "RedBorsh", MinRange = 18, MaxRange = 27, IsOccupied = true,ImageName = "8.jfif"}
+                new Assassins { Name = "RedBorsh", MinRange = 18, MaxRange = 27, IsOccupied = true,ImageName = "8.jpg"}
             });
 
             context.BeggarsTable.AddRange(new List<Beggars>
             {
-                new Beggars { Name = "Twitcher", GiveMoney = 3, ImageName = "7.jfif"},
-                new Beggars { Name = "Drooler", GiveMoney = 2, ImageName = "9.jfif"},
-                new Beggars { Name = "Dribbler", GiveMoney = 1,ImageName = "2.jfif"},
-                new Beggars { Name = "Mumbler", GiveMoney = 1,ImageName = "10.jfif"},
+                new Beggars { Name = "Twitcher", GiveMoney = 3, ImageName = "7.jpg"},
+                new Beggars { Name = "Drooler", GiveMoney = 2, ImageName = "9.jpg"},
+                new Beggars { Name = "Dribbler", GiveMoney = 1,ImageName = "2.jpg"},
+                new Beggars { Name = "Mumbler", GiveMoney = 1,ImageName = "10.jpg"},
                 new Beggars { Name = "Mutterer", GiveMoney = 0.9m,ImageName = "6.jpg"},
-                new Beggars { Name = "Walking-Along-Shouters", GiveMoney = 0.8m,ImageName = "4.jfif"},
-                new Beggars { Name = "Demanders of a Chip", GiveMoney = 0.6m,ImageName = "3.jfif"},
+                new Beggars { Name = "Walking-Along-Shouters", GiveMoney = 0.8m,ImageName = "4.jpg"},
+                new Beggars { Name = "Demanders of a Chip", GiveMoney = 0.6m,ImageName = "3.jpg"},
                 new Beggars { Name = "People Who Call Other People Jimmy", GiveMoney = 0.5m,ImageName = "8.jpg"},
                 new Beggars { Name = "People Who Need Eightpence For A Meal", GiveMoney = 0.08m,ImageName = "5.jpg"},
                 new Beggars { Name = "People Who Need Tuppence For A Cup Of Tea", GiveMoney = 0.02m,ImageName = "1.jpg"},
@@ -40,7 +40,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models.Resources
                 new Fools { Name = "Gull", TakeMoney = 1,ImageName = "9.jpg"},
                 new Fools { Name = "Dupe", TakeMoney = 2,ImageName = "8.jpg"},
                 new Fools { Name = "Butt", TakeMoney = 3,ImageName = "7.jpg"},
-                new Fools { Name = "Fool", TakeMoney = 5,ImageName = "2.jfif"},
+                new Fools { Name = "Fool", TakeMoney = 5,ImageName = "2.jpg"},
                 new Fools { Name = "Tomfool", TakeMoney = 6,ImageName = "6.jpg"},
                 new Fools { Name = "Stupid fool", TakeMoney = 7,ImageName = "5.jpg"},
                 new Fools { Name = "Arch fool", TakeMoney = 8,ImageName = "4.jpg"},

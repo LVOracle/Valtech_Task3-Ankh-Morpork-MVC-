@@ -1,14 +1,12 @@
-﻿@using Microsoft.AspNet.Identity
-@using Valtech_Task3_Ankh_Morpork_MVC_.Services
-@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Fools
+﻿@model Valtech_Task3_Ankh_Morpork_MVC_.Models.Fools
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-<div>Index fool</div>
-<div>@Model.Name --- @Model.TakeMoney</div>
-<div>
-    <img src="~/img/FoolsImages/@(Model.ImageName)" height="200" width="250" alt="" />
-</div>
-@Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
-@Html.ActionLink("No", "AnswerNo")
+
+    <div>Index fool</div>
+    <div>@Model.Name --- @Model.TakeMoney</div>
+    <div>
+        <img src="~/img/FoolsImages/@(Model.ImageName)" height="200" width="250" alt="" />
+    </div>
+    @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
+    @Html.ActionLink("No", "AnswerNo")
