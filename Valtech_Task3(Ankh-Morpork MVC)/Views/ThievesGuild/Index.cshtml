@@ -3,12 +3,15 @@
 @{
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-
-    <div>Index thieve</div>
-    <div>@Model.Name --- @ThievesGuild.MoneySteel</div>
-    <div>Theft Limit: @ThievesGuild.TheftLimit</div>
+<div class="gameplay-info-position">
+    <h2>You meet thief by name @Model.Name and he steel your money in amount @ThievesGuild.MoneySteel AM$</h2>
     <div>
-        <img src="~/img/ThievesImages/@(Model.ImageName)" height="200" width="250" alt="" />
+        <img src="~/img/ThievesImages/@(Model.ImageName)" height="250" alt="" />
     </div>
-    @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, null)
-    @Html.ActionLink("No", "AnswerNo")
+    <div class="authorization-variants">
+        @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, new {@class="link-style"})
+    </div>
+    <div class="authorization-variants">
+        @Html.ActionLink("No", "AnswerNo", null, new { @class = "link-style" })
+    </div>
+</div>

@@ -1,7 +1,13 @@
 ﻿@{
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
-<h2>Someone want's to kill you...take contract it will cost some money for you..you take?</h2>
-            @Html.ActionLink("Yes", "AnswerYes")
-            @Html.ActionLink("No", "AnswerNo")
+<div class="gameplay-info-position">
+    <h2>Someone want's to kill you...take contract it will cost some money for you..you take?</h2>
+    <div class="authorization-variants">
+        @Html.ActionLink("Yes", "AnswerYes", null, new { @class = "link-style" })
+    </div>
+    <div class="authorization-variants">
+        @Html.ActionLink("No", "AnswerNo", null, new { @class = "link-style" })
+    </div>
+</div>
 

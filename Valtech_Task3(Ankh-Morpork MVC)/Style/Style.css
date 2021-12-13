@@ -92,6 +92,20 @@ body {
     text-align: center;
 }
 
+.gameplay_bord {
+    position: relative;
+    top: 65px;
+    left: -170px;
+    width: 900px;
+    height: 600px;
+    background-image: url(/img/ApplicationImages/papirus2.png);
+}
+
+.pub-position {
+    position: relative;
+    top: -10px;
+    right: 150px;
+}
 /*Index-Home*/
 
 .regulations {
@@ -182,19 +196,15 @@ body {
     margin-left: 200px;
 }
 
-/*Index for game play*/
+/*Gameplay*/
 
-.gameplay_bord {
-    position: relative;
-    top: 65px;
-    left: -170px;
-    width: 900px;
-    height: 600px;
-    background-image: url(/img/ApplicationImages/papirus2.png);
+.gameplay-info-position {
+    width: 80%;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 30px;
 }
 
-.pub-position {
-    position: relative;
-    top: 5px;
-    right: 150px;
+.gameplay-info-position h2 {
+    font-weight: bold;
 }
