@@ -346,13 +346,13 @@
     <Compile Include="ViewModels\Player\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Player\EditPlayerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\AssassinsGuild.cs" />
-    <Compile Include="Resources\BeggarsGuild.cs" />
-    <Compile Include="Resources\FoolsGuild.cs" />
-    <Compile Include="Resources\Guild.cs" />
-    <Compile Include="Services\GameController.cs" />
+    <Compile Include="Guilds\AssassinsGuild.cs" />
+    <Compile Include="Guilds\BeggarsGuild.cs" />
+    <Compile Include="Guilds\FoolsGuild.cs" />
+    <Compile Include="Guilds\Guild.cs" />
+    <Compile Include="Services\GameEngine.cs" />
     <Compile Include="Services\GuildProcessor.cs" />
-    <Compile Include="Resources\ThievesGuild.cs" />
+    <Compile Include="Guilds\ThievesGuild.cs" />
     <Compile Include="Services\CurrentPlayerProcessor.cs" />
     <Compile Include="Services\RandomGenerate.cs" />
   </ItemGroup>

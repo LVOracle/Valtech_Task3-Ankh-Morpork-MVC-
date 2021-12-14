@@ -1,4 +1,4 @@
-﻿namespace Valtech_Task3_Ankh_Morpork_MVC_.Resources
+﻿namespace Valtech_Task3_Ankh_Morpork_MVC_.Guilds
 {
     public abstract class Guild
     {

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Valtech_Task3_Ankh_Morpork_MVC_.Resources;
+using Valtech_Task3_Ankh_Morpork_MVC_.Guilds;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
 {

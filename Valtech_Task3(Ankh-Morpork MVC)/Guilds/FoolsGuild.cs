@@ -4,7 +4,7 @@ using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Repository;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
 using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 
-namespace Valtech_Task3_Ankh_Morpork_MVC_.Resources
+namespace Valtech_Task3_Ankh_Morpork_MVC_.Guilds
 {
     public class FoolsGuild : Guild
     {
