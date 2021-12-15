@@ -4,14 +4,18 @@
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    <h2>You have too much beer and should not exceed 2 pints of beer!</h2>
-    @if (CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer <= 1)
-    {
-        <h2>You can have only 2 pints of beer! Now you have @CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer pints of beer</h2>
-        <a href='javascript:history.go(-1)' class="link-style">Go to previous stage and choose another amount of beer!</a>
-    }
-    else
-    {
-        <a href='javascript:history.go(-2)' class="link-style">Go Back to the game coz you have max value of beer!</a>
-    }
+    <div style="height: 80%;">
+        <h2>You have too much beer and should not exceed 2 pints of beer!</h2>
+    </div>
+    <div style="height: 20%;">
+        @if (CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer <= 1)
+        {
+            <h2>You can have only 2 pints of beer! Now you have @CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer pints of beer</h2>
+            <a href='javascript:history.go(-1)' class="link-style">Go to previous stage and choose another amount of beer!</a>
+        }
+        else
+        {
+            <a href='javascript:history.go(-2)' class="link-style">Go Back to the game coz you have max value of beer!</a>
+        }
+    </div>
 </div>

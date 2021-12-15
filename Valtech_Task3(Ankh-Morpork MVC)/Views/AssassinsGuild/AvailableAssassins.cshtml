@@ -5,30 +5,40 @@
 <div class="gameplay-info-position">
     @if (!Model.Any())
     {
-    <h2>All assassins are occupied or amount of money to low or to much! Enter the amount in the range 4-45 dollars!</h2>
-        <div class="authorization-variants">
-            @Html.ActionLink("Make another answer", "Action", null,new {@class="link-style"})
+        <div style="height: 80%">
+            <h2>All assassins are occupied or amount of money to low or to much! Enter the amount in the range 4-45 dollars!</h2>
+        </div>
+        <div style="height: 20%">
+            <div class="authorization-variants">
+                @Html.ActionLink("Make another answer", "Action", null, new { @class = "link-style" })
+            </div>
         </div>
     }
     else
     {
-         if (Model.Count() == 1)
-        {
+        <div style="height: 80%;">
+            @if (Model.Count() == 1)
+            {
             <h2>The entered amount is suitable for one assassin. You pay exactly to him!</h2>
-        }
-        else
-        {
-<h2>The entered amount is suitable for @Model.Count() assassins! You pay to first of them! Money goes to @Model.ElementAtOrDefault(0) !</h2>
-        }
-        foreach (var assassin in Model)
-        {
+            }
+            else
+            {
+            <h2>The entered amount is suitable for @Model.Count() assassins! You pay to first of them! Money goes to @Model.ElementAtOrDefault(0) !</h2>
+            }
+            @foreach (var assassin in Model)
+            {
             <div class="assassins-list">
                 <h2 style="text-align: center; font-weight: bold;">@assassin.Name</h2>
-                <img src="~/img/AssassinsImages/@(assassin.ImageName)" height="250" alt=""/>
+                <img src="~/img/AssassinsImages/@(assassin.ImageName)" height="250" alt="" />
             </div>
-        }
+            }
+        </div>
+        <div style="height: 20%;">
+            <div class="authorization-variants anothestyle">
+                @Html.ActionLink("Next step", "Index", "GamePlay", null, new { @class = "link-style" })
+            </div>
+        </div>
     }
-    <div class="authorization-variants">
-        @Html.ActionLink("Next step", "Index", "GamePlay", null,new {@class="link-style"})
-    </div>
 </div>
+
+

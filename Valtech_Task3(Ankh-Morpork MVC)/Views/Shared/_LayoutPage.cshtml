@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+@using Valtech_Task3_Ankh_Morpork_MVC_.Services
+<!DOCTYPE html>
 <html>
 <head>
     @Html.Partial("_ValidationMetaPartial")
@@ -21,8 +23,8 @@
                             <input type="submit" value="Exit" class="button-exit">
                         }
                     </div>
-                <div class="player-info">
-                    <p>Walker @User.Identity.Name</p>
+                <div class="player-info" style="margin-top: -10px;">
+                    @Html.ActionLink("Profile", "Index", "Player", null, new { @class = "link-style" })
                 </div>
             }
             else

@@ -15,7 +15,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
         private AccountPlayerManager PlayerManager =>
             HttpContext.GetOwinContext().GetUserManager<AccountPlayerManager>();
 
-        private IAuthenticationManager AuthenticationMaaManager => HttpContext.GetOwinContext().Authentication;
+        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
         // GET: Account
         public ActionResult Register()
         {
@@ -29,26 +29,25 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
         [HttpPost]
         public async Task<ActionResult> Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var player = new Player() {UserName = model.Name};
+            var result = await PlayerManager.CreateAsync(player, model.Password);
+            if (result.Succeeded)
             {
-                var player = new Player() {UserName = model.Name};
-                var result = await PlayerManager.CreateAsync(player, model.Password);
-                if (result.Succeeded)
+                var claim = await PlayerManager.CreateIdentityAsync(player,
+                    DefaultAuthenticationTypes.ApplicationCookie);
+                AuthenticationManager.SignIn(new AuthenticationProperties
                 {
-                    var claim = await PlayerManager.CreateIdentityAsync(player,
-                        DefaultAuthenticationTypes.ApplicationCookie);
-                    AuthenticationMaaManager.SignIn(new AuthenticationProperties
-                    {
-                        IsPersistent = true
-                    }, claim);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
+                    IsPersistent = true
+                }, claim);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                foreach (var error in result.Errors)
                 {
-                    foreach (string error in result.Errors)
-                    {
-                        ModelState.AddModelError("",error);
-                    }
+                    ModelState.AddModelError("",error);
                 }
             }
 
@@ -64,23 +63,21 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+            var player = await PlayerManager.FindAsync(model.Name, model.Password);
+            if (player == null)
             {
-                var player = await PlayerManager.FindAsync(model.Name, model.Password);
-                if (player == null)
+                ModelState.AddModelError("", "Incorrect login or password");
+            }
+            else
+            {
+                var claim = await PlayerManager.CreateIdentityAsync(player,
+                    DefaultAuthenticationTypes.ApplicationCookie);
+                AuthenticationManager.SignIn(new AuthenticationProperties
                 {
-                    ModelState.AddModelError("", "Incorrect login or password");
-                }
-                else
-                {
-                    var claim = await PlayerManager.CreateIdentityAsync(player,
-                        DefaultAuthenticationTypes.ApplicationCookie);
-                    AuthenticationMaaManager.SignIn(new AuthenticationProperties
-                    {
-                        IsPersistent = true
-                    }, claim);
-                    return RedirectToAction("Index", "Home");
-                }
+                    IsPersistent = true
+                }, claim);
+                return RedirectToAction("Index", "Home");
             }
 
             return View(model);
@@ -88,7 +85,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
         [HttpPost]
         public ActionResult Logout()
         {
-            AuthenticationMaaManager.SignOut();
+            AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
     }

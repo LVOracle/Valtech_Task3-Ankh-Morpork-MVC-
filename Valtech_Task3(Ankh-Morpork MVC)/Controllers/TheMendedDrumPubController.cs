@@ -6,8 +6,6 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 {
     public class TheMendedDrumPubController : Controller
     {
-        private CurrentPlayerProcessor _playerProcessor = new CurrentPlayerProcessor();
-
         // GET: TheMendedDrumPub
         public ActionResult Index()
         {
@@ -19,7 +17,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
             CurrentPlayerProcessor.CurrentPlayer =
                 CurrentPlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId());
 
-            if (!CurrentPlayerProcessor.CurrentPlayer.BuyBeer(beer)) return RedirectToAction("ToMuchBeerMan");
+            if (!CurrentPlayerProcessor.CurrentPlayer.IsBuyingBeer(beer)) return RedirectToAction("ToMuchBeerMan");
 
             CurrentPlayerProcessor.CurrentPlayer.LoseMoney(beer * 2);
 

@@ -2,9 +2,14 @@
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    <h2>I know my friend, but be careful, because people from the thieves guild skillfully steal money!</h2>
-    <div class="authorization-variants">
-        @Html.ActionLink("Next step", "Index", "GamePlay", null, new { @class = "link-style" })
+    <div style="height: 80%">
+        <h2>I know my friend, but be careful, because people from the thieves guild skillfully steal money!</h2>
+    </div>
+    <div style="height: 20%">
+        <div class="authorization-variants anothestyle">
+            @Html.ActionLink("Next step", "Index", "GamePlay", null, new { @class = "link-style" })
+        </div>
     </div>
 </div>
+
 

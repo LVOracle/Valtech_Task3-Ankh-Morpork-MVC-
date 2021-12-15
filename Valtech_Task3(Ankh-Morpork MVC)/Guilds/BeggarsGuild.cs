@@ -9,7 +9,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Guilds
     public class BeggarsGuild : Guild
     {
         private static readonly BeggarsRepository BeggarsRepository =
-            new BeggarsRepository(AnkhMorporkGameContext.Create());
+            new BeggarsRepository(BeggarsDbContext.Create());
         public BeggarsGuild() : base("Beggar","MONETA SVPERVACANEA, MAGISTER (Coin Svpervacanea, Magister)"){}
         public static Beggars GetBeggar()
         {

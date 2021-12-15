@@ -25,7 +25,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
         {
             var integerValue = Math.Floor(money);
             var floatValue = (money - integerValue) * 100m;
-            return floatValue == 0 ? $"{integerValue} AM$" : $"{integerValue} AM$ {Convert.ToInt32(floatValue)} coins";
+            return integerValue < 1 ? $"{Convert.ToInt32(floatValue)} coins" : floatValue != 0 ? $"{integerValue} AM$ {Convert.ToInt32(floatValue)} coins" : $"{integerValue} AM$";
         }
     }
 }

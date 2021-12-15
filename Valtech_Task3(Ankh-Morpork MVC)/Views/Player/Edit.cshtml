@@ -1,22 +1,21 @@
 ﻿@model Valtech_Task3_Ankh_Morpork_MVC_.ViewModels.Player.EditPlayerViewModel
-@{
-    ViewBag.Title = "Edit";
-}
-
-<h2>Edit</h2>
-@using (Html.BeginForm("Edit", "Player",FormMethod.Post))
-{
-    <div>
+<div class="gameplay_bord" style="margin: 0 auto;">
+    @using (Html.BeginForm("Edit", "Player",FormMethod.Post))
+    {
         @Html.ValidationMessage("ModelOnly");
-    </div>
-    <div>
+
         @Html.HiddenFor(id => id.Id);
-    </div>
-    <div>
-        @Html.LabelFor(label => label.Name);
-        @Html.TextBoxFor(name => name.Name);
-    </div>
-    <div>
-        <input type="submit" value="Save" />
-    </div>
-}
+        <div class="playerInfo" style="padding-left: 30px;">
+            @Html.LabelFor(label => label.Name, null, new {@class="authorization-label"})
+        </div>
+        <div class="playerInfo">
+            @Html.TextBoxFor(name => name.Name, null, new {@class="authorization-login"})
+        </div>
+        <div>
+            @Html.ValidationMessageFor(model => model.Name, "Name is occupied!", new {@class = "text-danger"})
+        </div>
+        <div class="playerInfo">
+            <input type="submit" value="Save" />
+        </div>
+    }
+</div>

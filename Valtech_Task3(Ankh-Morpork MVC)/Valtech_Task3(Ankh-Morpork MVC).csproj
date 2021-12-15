@@ -310,6 +310,10 @@
     <Compile Include="Controllers\GamePlayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TheMendedDrumPubController.cs" />
+    <Compile Include="DataManager\Context\AssassinsDbContext.cs" />
+    <Compile Include="DataManager\Context\BeggarsDbContext.cs" />
+    <Compile Include="DataManager\Context\FoolsDbContext.cs" />
+    <Compile Include="DataManager\Context\ThievesDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -325,6 +329,10 @@
     <Compile Include="Migrations\202112111347519_BeerChecker.Designer.cs">
       <DependentUpon>202112111347519_BeerChecker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112151619357_RenameColoumn.cs" />
+    <Compile Include="Migrations\202112151619357_RenameColoumn.Designer.cs">
+      <DependentUpon>202112151619357_RenameColoumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DataManager\Context\AccountContext.cs" />
     <Compile Include="DataManager\IRepository\IAnkhMorporkRepository.cs" />
@@ -333,7 +341,6 @@
     <Compile Include="DataManager\Repository\BeggarsRepository.cs" />
     <Compile Include="DataManager\Repository\FoolsRepository.cs" />
     <Compile Include="DataManager\Repository\ThievesRepository.cs" />
-    <Compile Include="DataManager\Context\AnkhMorporkGameContext.cs" />
     <Compile Include="Models\Assassins.cs" />
     <Compile Include="Models\Beggars.cs" />
     <Compile Include="DataManager\Resources\AccountPlayerManager.cs" />
@@ -343,6 +350,7 @@
     <Compile Include="Models\Thieves.cs" />
     <Compile Include="ViewModels\Account\LoginModel.cs" />
     <Compile Include="ViewModels\Account\RegisterModel.cs" />
+    <Compile Include="DataManager\Context\ContextViewModel.cs" />
     <Compile Include="ViewModels\Player\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Player\EditPlayerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -443,6 +451,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112111347519_BeerChecker.resx">
       <DependentUpon>202112111347519_BeerChecker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112151619357_RenameColoumn.resx">
+      <DependentUpon>202112151619357_RenameColoumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

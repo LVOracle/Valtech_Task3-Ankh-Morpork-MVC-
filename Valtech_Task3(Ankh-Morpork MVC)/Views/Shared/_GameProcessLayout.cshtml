@@ -24,7 +24,7 @@
             }
         </div>
         <div class="player-info">
-            <p>Walker @User.Identity.Name</p>
+            <p>Walker @CurrentPlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId()).UserName</p>
         </div>
         <div class="player-info">
             <div>Step: @CurrentPlayerProcessor.CurrentPlayer.Step</div>
@@ -37,12 +37,6 @@
         }
         <div class="player-info">
             <div>Balance: @CurrentPlayerProcessor.PlayerBalanceTextVariant(CurrentPlayerProcessor.GetCurrentPlayer(User.Identity.GetUserId()).Money)</div>
-        </div>
-        <div class="player-info">
-            <div>Step record: @CurrentPlayerProcessor.CurrentPlayer.MaxAmountOfSteps</div>
-        </div>
-        <div class="player-info">
-            <div>Games played: @CurrentPlayerProcessor.CurrentPlayer.AmountOfGames</div>
         </div>
     }
     else

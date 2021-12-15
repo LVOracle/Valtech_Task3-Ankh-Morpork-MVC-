@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Context;
 using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Repository;
+using Valtech_Task3_Ankh_Morpork_MVC_.Guilds;
 using Valtech_Task3_Ankh_Morpork_MVC_.Models;
 using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 
@@ -15,7 +17,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         private CurrentPlayerProcessor _playerProcessor = new CurrentPlayerProcessor();
 
         private readonly AssassinsRepository _assassinsRepository =
-            new AssassinsRepository(AnkhMorporkGameContext.Create());
+            new AssassinsRepository(AssassinsDbContext.Create());
 
         // GET: AssassinsGuild
         public ActionResult Index()
@@ -31,7 +33,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
         public ActionResult Action(decimal money)
         {
             var listOfAvailableAssassins = _assassinsRepository.GetGuildMembersEnumerable.Where(assassin =>
-                assassin.IsOccupied == false && (assassin.MinRange <= money && money <= assassin.MaxRange));
+                assassin.IsOccupied == false && (assassin.MinRange <= money && money <= assassin.MaxRange)).ToList();
 
             if (listOfAvailableAssassins.Any())
             {
@@ -41,9 +43,11 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
 
                 CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 
-                if (CurrentPlayerProcessor.CurrentPlayer.Money <= 0)
-                    return RedirectToAction("OutOfMoney", "Player");
+               AssassinsGuild.ChangeOccupiedAssassins(_assassinsRepository,listOfAvailableAssassins);
             }
+
+            if (CurrentPlayerProcessor.CurrentPlayer.Money <= 0)
+                return RedirectToAction("OutOfMoney", "Player");
 
             TempData["availableAssassins"] = listOfAvailableAssassins;
 

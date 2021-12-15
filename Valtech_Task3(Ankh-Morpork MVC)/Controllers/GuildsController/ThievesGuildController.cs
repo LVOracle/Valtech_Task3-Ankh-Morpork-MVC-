@@ -1,10 +1,8 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Context;
 using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Repository;
 using Valtech_Task3_Ankh_Morpork_MVC_.Guilds;
-using Valtech_Task3_Ankh_Morpork_MVC_.Models;
 using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
@@ -13,7 +11,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
     public class ThievesGuildController : Controller
     {
         private readonly ThievesRepository _thievesRepository =
-            new ThievesRepository(AnkhMorporkGameContext.Create());
+            new ThievesRepository(ThievesDbContext.Create());
 
         private CurrentPlayerProcessor _playerProcessor = new CurrentPlayerProcessor();
 

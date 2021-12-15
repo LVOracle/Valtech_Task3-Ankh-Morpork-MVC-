@@ -3,21 +3,27 @@
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    @if (GameController.MoneyChecker <= 0)
-    {
-        <h2>You out of money!</h2>
-    }
-    else if (CurrentPlayerProcessor.CurrentPlayer.HaveBeer == false)
-    {
-        <h2>You try to give to the beggar the beer, but you haven't!</h2>
-        <img src="/img/BeggarsImages/13.jpg" height="250" alt="" />
-    }
-    else
-    {
-        <h2>You was killed!</h2>
-    }
-    <h2>GameOver</h2>
-    <div class="authorization-variants">
-        @Html.ActionLink("Home page", "Index", "Home",null,new {@class="link-style"})
+    <div style="height: 80%">
+        @if (GameEngine.MoneyChecker <= 0)
+        {
+            <h2>You out of money!</h2>
+        }
+        else if (CurrentPlayerProcessor.CurrentPlayer.HasBeer == false)
+        {
+            <h2>You try to give to the beggar the beer, but you haven't!</h2>
+            <img src="/img/BeggarsImages/13.jpg" height="250" alt=""/>
+        }
+        else
+        {
+            <h2>You was killed!</h2>
+        }
+        <h2>GameOver</h2>
+    </div>
+    <div style="height: 20%">
+        <div class="authorization-variants anothestyle">
+            @Html.ActionLink("Home page", "Index", "Home", null, new { @class = "link-style" })
+        </div>
     </div>
 </div>
+
+

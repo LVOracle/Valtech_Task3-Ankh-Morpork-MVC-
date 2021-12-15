@@ -2,13 +2,16 @@
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    <h2>Someone wishes you death. In order to protect yourself, you need to take a contract from the assassin, but it will cost a certain amount of money. </h2>
-    <h2>Do you agree to take on the contract? </h2>
-    <div class="authorization-variants">
-        @Html.ActionLink("Yes", "AnswerYes", null, new { @class = "link-style" })
+    <div style="height: 80%">
+        <h2>Someone wishes you death. In order to protect yourself, you need to take a contract from the assassin, but it will cost a certain amount of money. </h2>
+        <h2>Do you agree to take on the contract? </h2>
     </div>
-    <div class="authorization-variants">
-        @Html.ActionLink("No", "AnswerNo", null, new { @class = "link-style" })
+    <div style="height: 20%">
+        <div class="authorization-variants">
+            @Html.ActionLink("Yes", "AnswerYes", null, new { @class = "link-style" })
+        </div>
+        <div class="authorization-variants">
+            @Html.ActionLink("No", "AnswerNo", null, new { @class = "link-style" })
+        </div>
     </div>
 </div>
-

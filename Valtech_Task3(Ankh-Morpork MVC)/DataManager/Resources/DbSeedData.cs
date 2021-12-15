@@ -6,9 +6,9 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Resources
 {
     public class DbSeedData
     {
-        public static void SeedData(AnkhMorporkGameContext context)
+        public static void SeedData(AssassinsDbContext assassinsDb, BeggarsDbContext beggarsDb, FoolsDbContext foolsDb, ThievesDbContext thievesDb)
         {
-            context.AssassinsTable.AddRange(new List<Assassins>
+            assassinsDb.AssassinsTable.AddRange(new List<Assassins>
             {
                 new Assassins { Name = "Knife", MinRange = 15, MaxRange = 30, IsOccupied = false, ImageName = "1.jpg"},
                 new Assassins { Name = "Sword", MinRange = 10,  MaxRange = 20, IsOccupied = true,ImageName = "2.jpg"},
@@ -20,7 +20,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Resources
                 new Assassins { Name = "RedBorsh", MinRange = 18, MaxRange = 27, IsOccupied = true,ImageName = "8.jpg"}
             });
 
-            context.BeggarsTable.AddRange(new List<Beggars>
+            beggarsDb.BeggarsTable.AddRange(new List<Beggars>
             {
                 new Beggars { Name = "Twitcher", GiveMoney = 3, ImageName = "7.jpg"},
                 new Beggars { Name = "Drooler", GiveMoney = 2, ImageName = "9.jpg"},
@@ -35,7 +35,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Resources
                 new Beggars { Name = "People With Placards Saying \"Why lie? I need a beer.\"", GiveMoney = 0,ImageName = "11.jpg"},
             });
 
-            context.FoolsTable.AddRange(new List<Fools>
+            foolsDb.FoolsTable.AddRange(new List<Fools>
             {
                 new Fools { Name = "Muggins", TakeMoney = 0.5m, ImageName = "3.jpg"},
                 new Fools { Name = "Gull", TakeMoney = 1,ImageName = "9.jpg"},
@@ -48,14 +48,17 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Resources
                 new Fools { Name = "Complete fool", TakeMoney = 10,ImageName = "1.png"},
             });
 
-            context.ThievesTable.AddRange(new List<Thieves>
+            thievesDb.ThievesTable.AddRange(new List<Thieves>
             {
                 new Thieves(){Name = "Brandy",ImageName = "1.jpg"},
                 new Thieves(){Name = "Stocky",ImageName = "2.jpg"},
                 new Thieves(){Name = "Falcon",ImageName = "3.jpg"}
             });
 
-            context.SaveChanges();
+            assassinsDb.SaveChanges();
+            beggarsDb.SaveChanges();
+            foolsDb.SaveChanges();
+            thievesDb.SaveChanges();
         }
     }
 }

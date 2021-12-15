@@ -9,7 +9,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Guilds
     public class ThievesGuild : Guild
     {
         private static readonly ThievesRepository thievesRepository =
-            new ThievesRepository(AnkhMorporkGameContext.Create());
+            new ThievesRepository(ThievesDbContext.Create());
         public static byte TheftLimit { get; set; } = 6;
         public static decimal MoneySteel { get; set; } = 10m;
         public ThievesGuild() : base("Thieves","ACVTVS ID VERBERAT (Whistle Fast)"){}

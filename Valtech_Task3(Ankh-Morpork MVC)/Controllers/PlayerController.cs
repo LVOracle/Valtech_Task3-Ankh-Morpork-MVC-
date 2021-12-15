@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Valtech_Task3_Ankh_Morpork_MVC_.DataManager.Resources;
+using Valtech_Task3_Ankh_Morpork_MVC_.Services;
 using Valtech_Task3_Ankh_Morpork_MVC_.ViewModels.Player;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
@@ -16,58 +16,53 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
         // GET: Player
         public ActionResult Index()
         {
-            return View(PlayerManager.Users.ToList());
+            return View(PlayerManager.FindById(User.Identity.GetUserId()));
         }
         [HttpGet]
         public async Task<ActionResult> Edit(string id)
         {
             var player = await PlayerManager.FindByIdAsync(id);
+
             if (player == null)
             {
                 return Content("Not found");
             }
+
             var model = new EditPlayerViewModel { Id = player.Id, Name = player.UserName };
+
             return View(model);
         }
         [HttpPost]
         public async Task<ActionResult> Edit(EditPlayerViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var player = await PlayerManager.FindByIdAsync(model.Id);
-                if (player != null)
-                {
-                    player.UserName = model.Name;
+            var gameEngine = new GameEngine(User.Identity.GetUserId());
 
-                    var result = await PlayerManager.UpdateAsync(player);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        foreach (var error in result.Errors)
-                        {
-                            ModelState.AddModelError(string.Empty, error);
-                        }
-                    }
-                }
-            }
-            return View(model);
-        }
-        [HttpPost]
-        public async Task<ActionResult> Delete(string id)
-        {
-            var player = await PlayerManager.FindByIdAsync(id);
-            if (player != null)
+            if (!ModelState.IsValid) return View(model);
+
+            var player = await PlayerManager.FindByIdAsync(model.Id);
+
+            //var p = await CurrentPlayerProcessor.PlayerManager.FindByIdAsync(model.Id);
+
+            if (player == null) return View(model);
+
+            player.UserName = model.Name;
+
+            //p.UserName = model.Name;
+
+            var result = await PlayerManager.UpdateAsync(player);
+            if (result.Succeeded)
             {
-                IdentityResult result = await PlayerManager.DeleteAsync(player);
+                //await CurrentPlayerProcessor.PlayerManager.UpdateAsync(p);
+                return RedirectToAction("Index");
             }
             else
             {
-                return Content("Not found");
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error);
+                }
             }
-            return RedirectToAction("Index");
+            return View(model);
         }
 
         public ActionResult OutOfMoney()

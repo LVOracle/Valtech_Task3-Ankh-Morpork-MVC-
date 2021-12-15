@@ -4,16 +4,21 @@
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    <h2>You met your friend named @Model.Name from the Guild of Fools and he asks you to help him with his work. It is not free, you will earn @CurrentPlayerProcessor.PlayerBalanceTextVariant(@Model.TakeMoney) !</h2>
-    <h2>Help him?</h2>
-    <div>
-        <img src="~/img/FoolsImages/@(Model.ImageName)" height="250" alt="" />
+    <div style="height: 80%">
+        <h2>You met your friend named @Model.Name from the Guild of Fools and he asks you to help him with his work. It is not free, you will earn @CurrentPlayerProcessor.PlayerBalanceTextVariant(@Model.TakeMoney) !</h2>
+        <h2>Help him?</h2>
+        <div>
+            <img src="~/img/FoolsImages/@(Model.ImageName)" height="250" alt="" />
+        </div>
     </div>
-    <div class="authorization-variants">
-        @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, new{@class="link-style"})
+    <div style="height: 20%">
+        <div class="authorization-variants">
+            @Html.ActionLink("Yes", "AnswerYes", new { name = Model }, new { @class = "link-style" })
 
+        </div>
+        <div class="authorization-variants">
+            @Html.ActionLink("No", "AnswerNo", null, new { @class = "link-style" })
+        </div>
     </div>
-    <div class="authorization-variants">
-        @Html.ActionLink("No", "AnswerNo", null, new { @class = "link-style" })
-    </div>
-</div>   
+</div>
+

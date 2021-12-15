@@ -4,16 +4,20 @@
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    @if (Model.GiveMoney == 0)
-    {
-        <h2>Oh brother, I love you, I will always love you as long as I'm alive!</h2>
-        <img src="/img/BeggarsImages/12.jpg" height="250" alt="" />
-    }
-    else
-    {
-        <h2>You gave a beggar with a name   @Model.Name @CurrentPlayerProcessor.PlayerBalanceTextVariant(@Model.GiveMoney)</h2>
-    }
-    <div class="authorization-variants">
-        @Html.ActionLink("Next step", "Index", "GamePlay", null,new{@class="link-style"})
+    <div style="height: 80%">
+        @if (Model.GiveMoney == 0)
+        {
+            <h2>Oh brother, I love you, I will always love you as long as I'm alive!</h2>
+            <img src="/img/BeggarsImages/12.jpg" height="250" alt="" />
+        }
+        else
+        {
+            <h2>You gave a beggar with a name @Model.Name @CurrentPlayerProcessor.PlayerBalanceTextVariant(@Model.GiveMoney)</h2>
+        }
+    </div>
+    <div style="height: 20%">
+        <div class="authorization-variants">
+            @Html.ActionLink("Next step", "Index", "GamePlay", null, new { @class = "link-style" })
+        </div>
     </div>
 </div>

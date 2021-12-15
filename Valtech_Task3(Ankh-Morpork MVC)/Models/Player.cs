@@ -8,13 +8,14 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models
         public bool IsKilled { get; set; }
         public int AmountOfGames { get; set; } = 0;
         public int AmountOfBeer { get; set; } = 1;
-        public bool HaveBeer { get; set; } = true;
+        public bool HasBeer { get; set; }
         public int Step { get; set; } = 0;
         public int MaxAmountOfSteps { get; set; } = 0;
         public Player()
         {
             Money = 100m;
             IsKilled = false;
+            HasBeer = AmountOfBeer > 0;
         }
         public void LoseMoney(decimal money)
         {
@@ -29,7 +30,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Models
             ++Step;
         }
 
-        public bool BuyBeer(int number)
+        public bool IsBuyingBeer(int number)
         {
             if (AmountOfBeer >= 2 || number > 2) return false;
             AmountOfBeer += number;

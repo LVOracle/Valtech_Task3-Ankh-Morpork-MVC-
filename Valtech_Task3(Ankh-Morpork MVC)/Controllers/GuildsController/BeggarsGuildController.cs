@@ -13,7 +13,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
     public class BeggarsGuildController : Controller
     {
         private readonly BeggarsRepository _beggarsRepository =
-            new BeggarsRepository(AnkhMorporkGameContext.Create());
+            new BeggarsRepository(BeggarsDbContext.Create());
 
         private CurrentPlayerProcessor _playerProcessor = new CurrentPlayerProcessor();
 
@@ -40,21 +40,15 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
             if (beggar.GiveMoney == 0)
             {
                 --CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer;
+            }
 
-                if (CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer < 0)
-                {
-                    CurrentPlayerProcessor.CurrentPlayer.HaveBeer = false;
+            if (CurrentPlayerProcessor.CurrentPlayer.AmountOfBeer < 0)
+            {
+                CurrentPlayerProcessor.CurrentPlayer.HasBeer = false;
 
-                    CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
+                CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 
-                    return RedirectToAction("GameOver", "GamePlay");
-                }
-                else
-                {
-                    CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
-
-                    return RedirectToAction("Action");
-                }
+                return RedirectToAction("GameOver", "GamePlay");
             }
 
             CurrentPlayerProcessor.CurrentPlayer.LoseMoney(beggar.GiveMoney);

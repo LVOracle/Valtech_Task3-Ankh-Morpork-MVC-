@@ -4,15 +4,19 @@
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    <h2>Catastrophe! A thief named @Model.Name walked by you and stole from you @ThievesGuild.MoneySteel AM$</h2>
-    <h2>Are you okay?</h2>
-    <div>
-        <img src="~/img/ThievesImages/@(Model.ImageName)" height="250" alt="" />
+    <div style="height: 80%;">
+        <h2>Catastrophe! A thief named @Model.Name walked by you and stole from you @ThievesGuild.MoneySteel AM$</h2>
+        <h2>Are you okay?</h2>
+        <div>
+            <img src="~/img/ThievesImages/@(Model.ImageName)" height="250" alt=""/>
+        </div>
     </div>
-    <div class="authorization-variants">
-        @Html.ActionLink("Yes", "AnswerYes", null, new {@class="link-style"})
-    </div>
-    <div class="authorization-variants">
-        @Html.ActionLink("No", "AnswerNo", null, new { @class = "link-style" })
+    <div style="height: 20%;">
+        <div class="authorization-variants">
+            @Html.ActionLink("Yes", "AnswerYes", null, new {@class = "link-style"})
+        </div>
+        <div class="authorization-variants">
+            @Html.ActionLink("No", "AnswerNo", null, new {@class = "link-style"})
+        </div>
     </div>
 </div>

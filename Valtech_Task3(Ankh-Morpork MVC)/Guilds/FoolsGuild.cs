@@ -9,7 +9,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Guilds
     public class FoolsGuild : Guild
     {
         private static readonly FoolsRepository FoolsRepository =
-            new FoolsRepository(AnkhMorporkGameContext.Create());
+            new FoolsRepository(FoolsDbContext.Create());
         public FoolsGuild() : base("Fool", "DICO, DICO, DICO (Say Say Say)"){}
         public static Fools GetFool()
         {

@@ -232,5 +232,21 @@ body {
     float: left;
     width: 100px;
     margin-left: 45px;
-    margin-right: 100px;
+    margin-right: 85px;
+}
+
+/*Players*/
+
+.playerInfo {
+    float: left;
+    width: 33%;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.somestyle {
+    font-size: 30px;
+    float: left;
 }

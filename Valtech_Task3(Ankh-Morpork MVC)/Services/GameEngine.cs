@@ -3,11 +3,11 @@ using Valtech_Task3_Ankh_Morpork_MVC_.Guilds;
 
 namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
 {
-    public class GameController
+    public class GameEngine
     {
         private CurrentPlayerProcessor _currentPlayerProcessor;
         public static decimal MoneyChecker { get; set; }
-        public GameController(string id)
+        public GameEngine(string id)
         {
             _currentPlayerProcessor = new CurrentPlayerProcessor();
             
@@ -27,7 +27,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Services
 
             CurrentPlayerProcessor.CurrentPlayer.Step = 0;
 
-            CurrentPlayerProcessor.CurrentPlayer.HaveBeer = true;
+            CurrentPlayerProcessor.CurrentPlayer.HasBeer = true;
 
             CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 

@@ -13,7 +13,7 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
     public class FoolsGuildController : Controller
     {
         private readonly FoolsRepository _foolsRepository =
-            new FoolsRepository(AnkhMorporkGameContext.Create());
+            new FoolsRepository(FoolsDbContext.Create());
 
         private CurrentPlayerProcessor _playerProcessor = new CurrentPlayerProcessor();
 
@@ -29,20 +29,20 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers.GuildsController
 
             return View(fool);
         }
-        public ActionResult AnswerYes(Fools fool)
+        public ActionResult AnswerYes(Fools foolMember)
         {
-            var _fool = _foolsRepository.GetGuildMembersEnumerable.FirstOrDefault(b => b.Name == fool.Name);
+            var fool = _foolsRepository.GetGuildMembersEnumerable.FirstOrDefault(b => b.Name == foolMember.Name);
 
             CurrentPlayerProcessor.CurrentPlayer = CurrentPlayerProcessor.PlayerManager.FindById(User.Identity.GetUserId());
 
-            if (_fool != null) CurrentPlayerProcessor.CurrentPlayer.EarnMoney(_fool.TakeMoney);
+            if (fool != null) CurrentPlayerProcessor.CurrentPlayer.EarnMoney(fool.TakeMoney);
 
             CurrentPlayerProcessor.PlayerManager.Update(CurrentPlayerProcessor.CurrentPlayer);
 
             if (CurrentPlayerProcessor.CurrentPlayer.Money <= 0)
                 return RedirectToAction("OutOfMoney", "Player");
 
-            TempData["Fool"] = _fool;
+            TempData["Fool"] = fool;
 
             return RedirectToAction("Action");
         }

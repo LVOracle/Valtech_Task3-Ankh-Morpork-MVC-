@@ -6,21 +6,21 @@ namespace Valtech_Task3_Ankh_Morpork_MVC_.Controllers
 {
     public class GamePlayController : Controller
     {
-        private GameController GameController => new GameController(User.Identity.GetUserId());
+        private GameEngine _gameEngine => new GameEngine(User.Identity.GetUserId());
         // GET: GamePlay
         public ActionResult Index()
-        { 
-            GameController.Step();
+        {
+            _gameEngine.Step();
             return RedirectToAction("Index", GuildProcessor.GetRandomGuild());
         }
         public ActionResult GameOver()
         {
-            GameController.MoneyChecker = CurrentPlayerProcessor.CurrentPlayer.Money;
+            GameEngine.MoneyChecker = CurrentPlayerProcessor.CurrentPlayer.Money;
             return View();
         }
         public ActionResult Play()
         {
-            GameController.StartInitialization();
+            _gameEngine.StartInitialization();
             return RedirectToAction("Index");
         }
     }

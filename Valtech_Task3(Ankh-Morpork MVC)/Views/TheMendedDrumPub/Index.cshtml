@@ -2,12 +2,16 @@
     Layout = "~/Views/Shared/_GameProcessLayout.cshtml";
 }
 <div class="gameplay-info-position">
-    <h2>You in the Mended Drum Pub how much beer do you want to buy?</h2>
-    @using (Html.BeginForm("BuyBeer", "TheMendedDrumPub", FormMethod.Post))
-    {
-        <input type="number" name="beer" required="required" class="authorization-login"/>
-        <br />
-        <input type="submit" name="Send" class="button-for-assassin"/>
-    }
-    <a href='javascript:history.go(-1)' class="link-style">Previous Page</a>
+    <div style="height: 80%;">
+        <h2>You in the Mended Drum Pub how much beer do you want to buy?</h2>
+        @using (Html.BeginForm("BuyBeer", "TheMendedDrumPub", FormMethod.Post))
+        {
+            <input type="number" name="beer" required="required" class="authorization-login"/>
+            <br/>
+            <input type="submit" name="Send" class="button-for-assassin"/>
+        }
+    </div>
+    <div style="height: 20%;">
+        <a href='javascript:history.go(-1)' class="link-style">Previous Page</a>
+    </div>
 </div>
